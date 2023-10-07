@@ -1,0 +1,134 @@
+.footer {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+
+}
+
+.footer__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A0A0A0;
+    max-width: 320px;
+    margin: 70px auto 20px;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__title {
+        max-width: 300px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 35px 0px 65px;
+    padding: 7px 0 0;
+    border-top: 1px solid rgba(232, 232, 232, 1);
+}
+
+@media screen and (max-width: 789px) {
+
+    .footer__container {
+        margin: 0 25px 0px 20px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .footer__container {
+        margin: 0 auto 20px;
+        flex-direction: column-reverse;
+    }
+}
+
+
+
+.footer__navigation {
+    max-width: 182px;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__navigation {
+        max-width: 111px;
+    }
+}
+
+
+
+
+
+.footer__links {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0 0;
+    margin: 0;
+    align-items: center;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__links {
+        flex-direction: column;
+        padding: 20px 0 0;
+    }
+}
+
+.footer__copyright {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    max-width: 48px;
+
+}
+
+@media screen and (max-width: 520px) {
+    .footer__copyright {
+        margin: 24px auto 0;
+    }
+}
+
+.footer__container-links {
+    padding-right: 20px;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__container-links {
+        padding: 0 0 6px;
+    }
+}
+
+.footer__container-links:last-child {
+    padding-right: 0;
+}
+
+.footer__link {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: right;
+    color: #000000;
+
+
+}
+
+@media screen and (max-width: 520px) {
+    .footer__link {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

@@ -1,0 +1,153 @@
+.header_light {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0 auto;
+    padding: 12px 55px 0 65px;
+    box-sizing: border-box;
+    min-height: 74px;
+    color: white;
+}
+
+.header_dark {
+    background-color: rgba(7, 48, 66, 1);
+}
+
+.header__logo {
+    max-width: 38px;
+    max-height: 38px;
+    margin-right: 60px;
+}
+
+.header__list-link {}
+
+.header__lang-links {
+    font-family: 'Inter';
+    font-style: normal;
+    color: white;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    width: 183px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.header__lang-link_logn {
+    min-width: 76px;
+    min-height: 32px;
+    background: #2BE080;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+}
+
+.header__links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    height: 18px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .header__links {
+        display: none;
+    }
+}
+
+.header__container-links {
+    padding-right: 16px;
+}
+
+.header__container-links:last-child {
+    padding-right: 0;
+}
+
+
+.header__link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: right;
+    color: #000000;
+    text-decoration: none;
+
+}
+
+.header__link_dark {
+    color: rgb(255, 255, 255);
+
+}
+
+.header__flag {
+    min-width: 100px;
+    max-height: 32px;
+    background: #ffffff;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 20px;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 768px) {
+    .header__flag {
+        display: none;
+    }
+}
+
+.header__flag_dark {
+    min-width: 100px;
+    max-height: 32px;
+    background: #2BE080;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .header__flag_dark {
+        display: none;
+    }
+}
+
+.header__flag-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 12px;
+    color: #000000;
+    padding-right: 7px;
+}
+
+.header__flag-circle {
+    background-color: rgba(249, 249, 249, 1);
+    border-radius: 50px;
+    min-width: 26px;
+    min-height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger__acaunt{
+    height: 32px;
+    background-image: url(../../images/profile.svg);
+    width: 100px;
+    margin: 0 auto;
+    background-size: cover;
+}

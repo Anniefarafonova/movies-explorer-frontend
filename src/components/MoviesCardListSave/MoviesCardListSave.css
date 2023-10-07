@@ -1,0 +1,18 @@
+.elements {
+    min-height: 1114px;
+    box-sizing: border-box;
+    margin: 115px 0 0;
+    z-index: 1;
+}
+@media screen and (max-width: 868px) {
+    .elements {
+        margin: 125px auto 0;
+        max-width: 708px;
+    }
+}
+@media screen and (max-width: 867px) {
+    .elements {
+        margin: 125px auto 0;
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,178 @@
+.profile {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__container {
+    margin: 0 auto;
+    max-width: 410px;
+}
+
+@media screen and (max-width: 520px) {
+    .profile__container {
+        max-width: 260px;
+    }
+}
+
+
+.form__container-title_profile {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    max-width: 410px;
+    margin: 65px auto 120px;
+    text-align: center;
+}
+
+@media screen and (max-width: 520px) {
+    .form__container-title_profile {}
+}
+
+.form__container-texts_profile {
+    margin: 0 auto 203px;
+    min-width: 410px;
+}
+
+@media screen and (max-width: 520px) {
+    .form__container-texts_profile {
+        min-width: 260px;
+    }
+}
+
+.form__container-name {
+    display: flex;
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto 10px;
+    align-items: baseline;
+    padding: 0 0 15px;
+}
+
+@media screen and (max-width: 520px) {
+    .form__container-name {}
+}
+
+.form__container-name:last-child {
+    border-bottom: none;
+}
+
+.form__container-names {}
+
+/* .form__item {
+    border-bottom: none;
+
+}
+
+.form__item:focus {
+    border-bottom: none;
+} */
+
+
+.form__item_profile {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: right;
+    color: #000000;
+    border-bottom: none;
+}
+.form__item_profile :focus {
+    border-bottom: none;
+}
+@media screen and (max-width: 520px) {
+    .form__item_profile {}
+}
+
+.form__item_profile-name {
+    min-width: 120px;
+}
+
+.form__item_profile-email {
+    min-width: 120px;
+}
+
+.form__item-span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #A0A0A0;
+
+}
+
+.form__item-span_profile {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    color: #000000;
+}
+
+.profile__button {
+    min-width: 410px;
+    border: none;
+    background: none;
+    margin: 0 auto 16px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+
+}
+
+@media screen and (max-width: 520px) {
+    .profile__button {
+        min-width: 200px;
+    }
+}
+
+
+
+.profile__button-edit {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: black;
+}
+
+@media screen and (max-width: 520px) {
+    .profile__button-edit {
+        font-size: 12px;
+        line-height: 15px;
+
+
+
+    }
+}
+
+.profile__button-signout {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: rgba(255, 48, 85, 1);
+}
+
+@media screen and (max-width: 520px) {
+    .profile__button-signout {
+        font-size: 12px;
+        line-height: 15px;
+
+
+    }
+}

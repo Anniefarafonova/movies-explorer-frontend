@@ -1,0 +1,125 @@
+.element {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    position: relative;
+    max-height: 230px;
+}
+@media screen and (max-width: 868px) {
+    .element {
+        max-width: 339px;
+        max-height: 269px;
+    }
+}
+@media screen and (max-width: 867px) {
+    .element {
+        max-width: 300px;
+        min-height: 168px;
+    }
+}
+.elements__list-template {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 38px 20px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 60px 70px;
+}
+@media screen and (max-width: 868px) {
+    .elements__list-template {
+        gap: 30px;
+        margin: 0 auto 70px;
+        grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
+    }
+}
+.element__image {
+    max-width: 270px;
+    min-height: 151px;
+    background-color: blueviolet;
+}
+@media screen and (max-width: 868px) {
+    .element__image {
+        max-width: 339px;
+        min-height: 190px;
+    }
+}
+@media screen and (max-width: 868px) {
+    .element__image {
+        max-width: 300px;
+        min-height: 168px;
+    }
+}
+.element__dislike-button {
+    background-image: url(../../images/dislike.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    min-width: 24px;
+    height: 24px;
+}
+
+.element__like-button:hover {
+    opacity: 50%;
+}
+
+.element__list {}
+
+.element__list-self {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 0 20px;
+    max-height: 32px;
+    box-sizing: border-box;
+    max-width: 270px;
+    word-wrap: break-word;
+}
+
+.element__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    max-width: 226px;
+    max-height: 32px;
+    margin: 0;
+}
+
+.element__time {
+    border-top: 1px solid rgba(232, 232, 232, 1);
+    margin: 0;
+    padding: 9px 0 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #A0A0A0;
+
+}
+
+.element__container {
+    display: flex;
+    max-width: 320px;
+    margin: 0 auto 100px;
+}
+
+.element__container-button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    border: none;
+    max-width: 200px;
+    margin: 0 auto;
+    padding-left: 30px;
+    background: transparent;
+}

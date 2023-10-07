@@ -1,0 +1,122 @@
+.prtfolio {
+    margin: 0 40px 100px 65px;
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 789px) {
+    .prtfolio {
+        margin: 0 40px 80px 45px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .prtfolio {
+        margin: 0 10px 60px 5px;
+    }
+}
+
+.portfolio__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+    mix-blend-mode: normal;
+    margin: 0 0 50px;
+    max-width: 250px;
+}
+
+@media screen and (max-width: 789px) {
+    .portfolio__title {}
+}
+
+@media screen and (max-width: 520px) {
+    .portfolio__title {
+        font-size: 14px;
+        margin: 0 0 40px;
+
+    }
+}
+
+.portfolio__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 789px) {
+    .portfolio__list {}
+}
+
+.portfolio__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 19px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+@media screen and (max-width: 789px) {
+    .portfolio__list-item {}
+}
+
+.portfolio__list-item:last-child {
+    border-bottom: none;
+}
+
+.portfolio__list-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    max-width: 1140px;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 789px) {
+    .portfolio__list-text {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .portfolio__list-text {
+        font-size: 18px;
+        line-height: 28px;
+
+
+
+    }
+}
+
+.portfolio__list-img {
+    max-width: 18px;
+    max-height: 17px;
+
+}
+
+@media screen and (max-width: 789px) {
+    .portfolio__list-img {}
+}
+
+@media screen and (max-width: 520px) {
+    .portfolio__list-img {
+
+        max-width: 10px;
+        max-height: 28px;
+    }
+}
+
+.portfolio__list-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
