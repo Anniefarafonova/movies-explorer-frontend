@@ -16,14 +16,13 @@ export default function Main({ isOpen }) {
   return (
     <>
       <main className="main">
-        <Preloader/>
-        {/* <HeaderAuth />
+        <HeaderAuth />
         <Promo />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Portfolio />
-        <Footer /> */}
+        <Footer />
       </main>
     </>
   );

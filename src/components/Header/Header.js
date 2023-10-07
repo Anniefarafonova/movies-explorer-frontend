@@ -9,7 +9,10 @@ export default function Header({ children }) {
     //не зарегистрирован
 
     <header className="header header_main">
-      <img className="header__logo" src={imageLogo} alt="Логотип" />
+      <Link to="/">
+        <img className="header__logo" src={imageLogo} alt="Логотип" />
+      </Link>
+
       <div className="header__list-links">
 
         <Link to="/signup" className="header__list-link header__lang-list_registr">Регистрация</Link>

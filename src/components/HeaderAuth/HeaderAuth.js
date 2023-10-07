@@ -8,7 +8,9 @@ export default function HeaderAuth({ }) {
 
     return (
         <header className="header header_light header_dark">
-            <img className="header__logo" src={imageLogo} alt="Логотип" />
+            <Link to="/">
+                <img className="header__logo" src={imageLogo} alt="Логотип" />
+            </Link>
             <ul className="header__links">
                 <li className="header__container-links">
                     <Link to="/movies" className="header__link header__link_dark">Фильмы</Link>
