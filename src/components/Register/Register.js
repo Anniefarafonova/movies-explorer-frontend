@@ -8,19 +8,22 @@ export default function Register({ onRegister }) {
 
     return (
         <>
+         <main className="main">
             <section className="register">
                 <div className="register__container">
-                    <img className="register__container-logo" src={imageLogo} alt="Логотип" />
+                    <Link to="/">
+                        <img className="register__container-logo" src={imageLogo} alt="Логотип" />
+                    </Link>
                     <form className="form form_login" name="form-login" noValidate>
-                        <h2 className="form__container-title form__container-title_login">Добро пожаловать!</h2>
+                        <h1 className="form__container-title form__container-title_login">Добро пожаловать!</h1>
                         <div className="form__container-texts form__container-texts_login" >
-                            <span className="form__item-span">Имя</span>
+                            <label className="form__item-span">Имя</label>
                             <input id="name" type="text" placeholder="" name="name"
                                 className="form__item form__item_register form__item_login-name" required />
-                            <span className="form__item-span">E-mail</span>
+                            <label className="form__item-span">E-mail</label>
                             <input id="email" type="email" placeholder=" " name="email"
                                 className="form__item form__item_register form__item_login-email" required />
-                            <span className="form__item-span">Пароль</span>
+                            <label className="form__item-span">Пароль</label>
                             <input id="password" type="password" placeholder="" name="password"
                                 className="form__item form__item_register form__item_login-password" requiredvalue />
                         </div>
@@ -33,6 +36,7 @@ export default function Register({ onRegister }) {
                     </p>
                 </div>
             </section>
+            </main>
         </>
     )
 }

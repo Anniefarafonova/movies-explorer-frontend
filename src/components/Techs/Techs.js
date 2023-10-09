@@ -6,9 +6,9 @@ import './Techs.css';
 export default function Techs({ }) {
   return (
     <>
-      <div className="techs">
-        <h3 className="techs__header">Технологии</h3>
-        <h2 className="techs__title">7 технологий</h2>
+      <section className="techs">
+        <h2 className="techs__header">Технологии</h2>
+        <h3 className="techs__title">7 технологий</h3>
         <p className="techs__title-text">
           {" "}
           На курсе веб-разработки мы освоили технологии, которые применили в дипломном
@@ -23,7 +23,7 @@ export default function Techs({ }) {
           <li className="techs__list-item">Express.js</li>
           <li className="techs__list-item">mongoDB</li>
         </ul>
-      </div>
+      </section>
     </>
 
   )

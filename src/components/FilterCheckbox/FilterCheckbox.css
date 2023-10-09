@@ -4,10 +4,18 @@
     z-index: 1;
 }
 
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 907px) {
     .filter {
         flex-direction: row-reverse;
-        margin: 0 20px 40px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .filter {
+        flex-direction: row-reverse;
+        margin: 5px auto 0;
+        justify-content: center;
     }
 }
 
@@ -49,13 +57,14 @@
     font-size: 13px;
     line-height: 18px;
     color: #000000;
-    margin: 0;
+    margin: 0 15px 0 0;
     padding: 0;
 
 }
 
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 767px) {
     .filter__title {
         margin: 0 10px 0 0;
+        font-size: 11px;
     }
 }

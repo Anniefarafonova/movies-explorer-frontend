@@ -12,12 +12,10 @@ export default function Header({ children }) {
       <Link to="/">
         <img className="header__logo" src={imageLogo} alt="Логотип" />
       </Link>
-
-      <div className="header__list-links">
-
-        <Link to="/signup" className="header__list-link header__lang-list_registr">Регистрация</Link>
+      <nav className="header__list-links">
+        <Link to="/signup" className="header__list-link header__list-link_registr">Регистрация</Link>
         <Link to="/signin" className="header__list-link header__list-link_logn">Войти</Link>
-      </div>
+      </nav>
 
 
     </header >

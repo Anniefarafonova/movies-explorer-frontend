@@ -8,16 +8,15 @@ export default function FilterCheckbox({ }) {
 
     return (
         <>
-            <div className="filter">
+            <section className="filter">
                 <label className="filter__checkbox">
                     <input
                         type="checkbox"
                         className="filter__input"
                     />
-                    {/* <span className="filter__round" /> */}
                 </label>
                 <p className="filter__title">Короткометражки</p>
-            </div>
+            </section>
         </>
     )
 }

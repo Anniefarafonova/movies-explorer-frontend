@@ -6,6 +6,20 @@
     max-height: 230px;
 }
 
+@media screen and (max-width: 968px) {
+    .element {
+        max-width: 339px;
+        max-height: 269px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .element {
+        max-width: 300px;
+        min-height: 168px;
+    }
+}
+
 .elements__list-template {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -15,14 +29,53 @@
     margin: 0 60px 70px;
 }
 
+@media screen and (max-width: 868px) {
+    .elements__list-template {
+        gap: 30px;
+        margin: 0 auto 70px;
+        grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .elements__list-template {
+        gap: 30px;
+        margin: 0 auto 70px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .elements__list-template {
+        gap: 30px;
+        margin: 0 auto 70px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
 .element__image {
     max-width: 270px;
     min-height: 151px;
     background-color: blueviolet;
 }
 
+@media screen and (max-width: 908px) {
+    .element__image {
+        max-width: 339px;
+        min-height: 190px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .element__image {
+        min-width: 300px;
+        min-height: 168px;
+    }
+}
+
+
 .element__like-button {
-    background-image: url(../../images/likee.svg);
+    background-image: url(../../images/like_1.svg);
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
@@ -31,14 +84,17 @@
     margin: 0;
     min-width: 24px;
     height: 24px;
-    border: 1px solid rgb(115, 162, 158);
 }
 
 .element__like-button:hover {
     opacity: 50%;
 }
 
-.element__list {}
+.element__list {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
 
 .element__list-self {
     display: flex;
@@ -49,6 +105,19 @@
     max-width: 270px;
     word-wrap: break-word;
 }
+
+@media screen and (max-width: 767px) {
+    .element__list-self {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .element__list-self {
+        max-width: 339px;
+    }
+}
+
 
 .element__title {
     font-style: normal;
@@ -75,13 +144,21 @@
 
 }
 
-.element__container {
+.elements__container {
     display: flex;
     max-width: 320px;
+    height: 36px;
     margin: 0 auto 100px;
+    background: #F9F9F9;
 }
 
-.element__container-button {
+@media screen and (max-width: 668px) {
+    .elements__container {
+        max-width: 240px;
+    }
+}
+
+.elements__container-button {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -93,6 +170,6 @@
     border: none;
     max-width: 200px;
     margin: 0 auto;
-    padding-left: 30px;
+    padding: 0;
     background: transparent;
 }

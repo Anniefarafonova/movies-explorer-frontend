@@ -37,7 +37,7 @@
 .aboutme__container {
     display: flex;
     justify-content: space-between;
-    margin: 65px 40px 101px 65px;
+    margin: 65px 70px 101px 65px;
 }
 
 @media screen and (max-width: 789px) {
@@ -64,7 +64,9 @@
 }
 
 @media screen and (max-width: 520px) {
-    .aboutme__container-text {}
+    .aboutme__container-text {
+        margin: 0 14px 0;
+    }
 }
 
 .aboutme__name {
@@ -184,6 +186,6 @@
     .aboutme__foto {
         max-width: 292px;
         max-height: 352px;
-        margin: 0 auto 40px;
+        margin: 0 auto 60px;
     }
 }

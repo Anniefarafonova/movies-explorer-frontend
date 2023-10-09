@@ -13,12 +13,11 @@ import MoviesCardListSave from '../MoviesCardListSave/MoviesCardListSave';
 export default function SavedMovies() {
   return (
     <>
-      <section className="movies">
+      <main className="main">
         <HeaderAuth/>
         <SearchForm/>
-        < FilterCheckbox />
         <MoviesCardListSave />
-      </section>
+        </main>
     </>
   )
 }

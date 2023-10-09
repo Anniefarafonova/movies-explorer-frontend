@@ -1,4 +1,6 @@
 import React from 'react'
+import { HashLink } from 'react-router-hash-link';
+import { Link, useNavigate } from 'react-router-dom';
 import imageLanding from '../../images/landing-logo.png'
 import './Promo.css';
 
@@ -7,7 +9,7 @@ export default function Promo({ children }) {
   return (
     <>
 
-      <div className="promo">
+      <section className="promo">
         <div className="promo__container">
           <h1 className="promo__title">
             Учебный проект студента факультета Веб‑разработки.
@@ -15,12 +17,10 @@ export default function Promo({ children }) {
           <p className="promo__text">
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
-          <a className="promo__link" href="#">
-            Узнать больше
-          </a>
+          <HashLink className="promo__link" smooth to='/#section1'> Узнать больше </HashLink>
         </div>
         <img className="promo__img" src={imageLanding} alt="Логотип" />
-      </div>
+      </section>
     </>
   )
 }

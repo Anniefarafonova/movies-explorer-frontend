@@ -48,11 +48,16 @@
 }
 
 .form__item {
-    min-width: 396px;
+   max-width: 396px;
     border: none;
     box-sizing: border-box;
     background: transparent;
     outline: none;
+}
+@media screen and (max-width: 520px) {
+    .form__item {
+        max-width: 320px;
+    }
 }
 
 .form__item_register {
@@ -122,7 +127,7 @@
 }
 
 .register__subtitle {
-    width: 217px;
+    min-width: 285px;
     display: flex;
     justify-content: space-around;
     font-family: 'Inter';

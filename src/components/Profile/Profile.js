@@ -14,14 +14,14 @@ export default function Profile({ name }) {
                         <h2 className="form__container-title form__container-title_profile">Привет, Виталий!</h2>
                         <div className="form__container-texts form__container-texts_profile" >
                             <div className="form__container-name" >
-                                <span className="form__item-span form__item-span_profile">Имя</span>
+                                <label className="form__item-span form__item-span_profile">Имя</label>
                                 <div className="form__container-names" >
                                     <input id="name" type="text" placeholder="" name="name"
                                         className="form__item form__item_profile  form__item_profile-name" required />
                                 </div>
                             </div>
                             <div className="form__container-name" >
-                                <span className="form__item-span form__item-span_profile">E-mail</span>
+                                <label className="form__item-span form__item-span_profile">E-mail</label>
                                 <div className="form__container-names" >
                                     <input id="email" type="email" placeholder=" " name="email"
                                         className="form__item form__item_profile form__item_profile-email" required />
@@ -29,7 +29,9 @@ export default function Profile({ name }) {
                             </div>
                         </div>
                         <button type="submit" aria-label="Редактировать" className="profile__button profile__button-edit">Редактировать</button>
+                        <Link to="/" className="profile__button-link">
                         <button type="submit" aria-label="Выйти из аккаунта" className="profile__button profile__button-signout">Выйти из аккаунта</button>
+                        </Link>
                     </form>
                 </div>
             </section>

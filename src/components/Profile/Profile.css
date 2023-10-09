@@ -1,6 +1,8 @@
 .profile {
     display: flex;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
 }
 
 .profile__container {
@@ -81,9 +83,11 @@
     color: #000000;
     border-bottom: none;
 }
+
 .form__item_profile :focus {
     border-bottom: none;
 }
+
 @media screen and (max-width: 520px) {
     .form__item_profile {}
 }
@@ -175,4 +179,8 @@
 
 
     }
+}
+
+.profile__button-link {
+    text-decoration: none;
 }

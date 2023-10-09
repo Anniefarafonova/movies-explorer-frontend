@@ -19,13 +19,12 @@ import Footer from '../Footer/Footer';
 export default function Movies() {
   return (
     <>
-      <section className="movies">
+      <main className="main">
         <HeaderAuth />
         <SearchForm />
-        < FilterCheckbox />
         {/* <Preloader /> */}
         <MoviesCardList />
-      </section>
+      </main>
     </>
   )
 }

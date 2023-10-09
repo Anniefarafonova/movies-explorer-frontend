@@ -23,20 +23,20 @@
 }
 
 .promo__container {
-    margin: 65px 65px 75px;
+    margin: 75px 65px 75px;
 }
 
 @media screen and (max-width: 989px) {
     .promo__container {
         max-width: 680px;
-        margin: 55px auto 80px;
+        margin: 65px auto 80px;
     }
 }
 
 @media screen and (max-width: 520px) {
     .promo__container {
         max-width: 300px;
-        margin: 45px auto 30px;
+        margin: 55px auto 30px;
     }
 }
 

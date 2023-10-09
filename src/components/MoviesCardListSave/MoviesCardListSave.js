@@ -15,10 +15,9 @@ export default function MoviesCardListSave({ }) {
                 <div className="elements__list-template">
                     <MoviesCardSave />
                 </div>
-                <div className="element__container">
-                    <button className="element__container-button" type="button">Ещё</button>
+                <div className="elements__container">
+                    <button className="elements__container-button" type="button">Ещё</button>
                 </div>
-
                 <Footer />
             </section>
         </>

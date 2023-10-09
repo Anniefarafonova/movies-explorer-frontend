@@ -1,19 +1,35 @@
 .searchForm {
-    padding: 65px 40px 30px 60px;
+    padding: 70px 70px 30px 60px;
     z-index: 1;
 }
-@media screen and (max-width: 868px) {
+
+@media screen and (max-width: 968px) {
     .searchForm {
-        padding: 80px 15px 30px 30px;
+        padding: 80px 30px 30px 30px;
+
     }
 }
+
+@media screen and (max-width: 468px) {
+    .searchForm {
+        padding: 85px 15px 30px 10px;
+        margin: 0 auto;
+        max-width: 292px;
+    }
+}
+
 .searchForm__form {
-    padding: 0 0 13px;
-    border-bottom: 1px solid rgba(232, 232, 232, 1);
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
+}
+
+@media screen and (max-width: 405px) {
+    .searchForm__form {
+        max-width: 292px;
+    }
 }
 
 .searchForm__form-input {
@@ -25,18 +41,51 @@
     color: #A0A0A0;
     border: none;
     outline: none;
+    max-width: 94px;
+}
+
+@media screen and (max-width: 605px) {
+    .searchForm__form-input {
+        max-width: 60px;
+        font-size: 18px;
+        line-height: 22px;
+        color: #A0A0A0;
+
+
+    }
+}
+
+.searchForm__form-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0 13px;
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.searchForm__checkbox {
+    margin: 12px 0 0;
+    position: relative;
+    left: -55px;
+    top: 20px;
+}
+@media screen and (max-width: 900px) {
+    .searchForm__checkbox {
+
+    position: relative;
+    left: -5px;
+    top: 15px;
+
+    }
 }
 
 .searchForm__saved-button {
 
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 11px;
     line-height: 18px;
     text-align: center;
     color: #FFFFFF;
-
     min-width: 58px;
     max-height: 34px;
     background: #3456F3;
@@ -45,4 +94,5 @@
     align-items: center;
     border-radius: 48px;
     border: none;
+    padding: 10px 10px;
 }

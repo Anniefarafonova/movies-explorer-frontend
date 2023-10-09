@@ -9,171 +9,129 @@ export default function MoviesCardSave({ }) {
         <>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
             <article className="element">
                 <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
+                <ul className="element__list">
+                    <li className="element__list-self">
                         <h2 className="element__title">Текст</h2>
                         <button
                             type="button"
-                            className="element__dislike-button"
+                            className="element__like-button"
                             aria-label="Значок лайк"
                         />
-                    </div>
+                    </li>
                     <p className="element__time">1ч 42м</p>
-                </div>
-            </article>
-            <article className="element">
-                <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
-                        <h2 className="element__title">Текст</h2>
-                        <button
-                            type="button"
-                            className="element__dislike-button"
-                            aria-label="Значок лайк"
-                        />
-                    </div>
-                    <p className="element__time">1ч 42м</p>
-                </div>
-            </article>
-            <article className="element">
-                <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
-                        <h2 className="element__title">Текст</h2>
-                        <button
-                            type="button"
-                            className="element__dislike-button"
-                            aria-label="Значок лайк"
-                        />
-                    </div>
-                    <p className="element__time">1ч 42м</p>
-                </div>
-            </article>
-            <article className="element">
-                <img className="element__image" alt="" />
-                <div className="element__list">
-                    <div className="element__list-self">
-                        <h2 className="element__title">Текст</h2>
-                        <button
-                            type="button"
-                            className="element__dislike-button"
-                            aria-label="Значок лайк"
-                        />
-                    </div>
-                    <p className="element__time">1ч 42м</p>
-                </div>
+                </ul>
             </article>
         </>
     )

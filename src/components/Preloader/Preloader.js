@@ -6,9 +6,9 @@ import './Preloader.css';
 export default function Preloader() {
     return (
         <>
-            <div className="preloader">
+            <section className="preloader">
             <span className="preloader-loader"></span>
-            </div>
+            </section>
 
         </>
     )
