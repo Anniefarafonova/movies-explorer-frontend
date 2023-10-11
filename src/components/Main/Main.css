@@ -2,3 +2,8 @@
     position: relative;
     z-index: 2;
     }
+    
+.main {
+   z-index: 0;
+}
+

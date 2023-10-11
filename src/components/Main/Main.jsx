@@ -14,16 +14,16 @@ import Preloader from "../Preloader/Preloader";
 export default function Main({}) {
   return (
     <>
+      {/* <Header /> */}
+      <HeaderAuth />
       <main className="main">
-        {/* <Header /> */}
-        <HeaderAuth />
         <Promo />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Portfolio />
+        </main>
         <Footer />
-      </main>
     </>
   );
 }

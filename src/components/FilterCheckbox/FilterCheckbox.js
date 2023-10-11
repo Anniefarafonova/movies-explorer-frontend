@@ -12,7 +12,7 @@ export default function FilterCheckbox({ }) {
                 <label className="filter__checkbox">
                     <input
                         type="checkbox"
-                        className="filter__input"
+                        className="filter__checkbox-input"
                     />
                 </label>
                 <p className="filter__title">Короткометражки</p>

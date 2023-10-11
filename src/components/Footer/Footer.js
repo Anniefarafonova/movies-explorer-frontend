@@ -7,16 +7,16 @@ export default function Footer() {
     <footer className="footer">
       <h2 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
       <div className="footer__container">
-        <p className="footer__copyright"> ©2023</p>
+        <p className="footer__container-copyright"> ©2023</p>
         <nav className="footer__navigation">
-          <ul className="footer__container-links">
-            <li className="footer__links">
-              <Link to="https://practicum.yandex.ru/" className="footer__link" target="_blank">
+          <ul className="footer__navigation-list">
+            <li className="footer__navigation-links">
+              <Link to="https://practicum.yandex.ru/" className="footer__navigation-link" target="_blank">
                 Яндекс.Практикум
               </Link>
             </li>
-            <li className="footer__links">
-              <Link to="https://github.com/git-guides" className="footer__link" target="_blank">
+            <li className="footer__navigation-links">
+              <Link to="https://github.com/git-guides" className="footer__navigation-link" target="_blank">
                 Github
               </Link>
             </li>

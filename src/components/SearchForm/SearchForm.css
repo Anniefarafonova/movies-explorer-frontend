@@ -63,14 +63,14 @@
     border-bottom: 1px solid rgba(232, 232, 232, 1);
 }
 
-.searchForm__checkbox {
+.searchForm__form-checkbox {
     margin: 12px 0 0;
     position: relative;
     left: -55px;
     top: 20px;
 }
 @media screen and (max-width: 900px) {
-    .searchForm__checkbox {
+    .searchForm__form-checkbox {
 
     position: relative;
     left: -5px;
@@ -79,7 +79,7 @@
     }
 }
 
-.searchForm__saved-button {
+.searchForm__form-button{
 
     font-weight: 500;
     font-size: 11px;

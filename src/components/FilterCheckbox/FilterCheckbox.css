@@ -14,7 +14,7 @@
 @media screen and (max-width: 767px) {
     .filter {
         flex-direction: row-reverse;
-        margin: 5px auto 0;
+        margin: 10px auto 0;
         justify-content: center;
     }
 }
@@ -30,7 +30,7 @@
     .filter__checkbox {}
 }
 
-.filter__input {
+.filter__checkbox-input {
     appearance: none;
     margin: 0 14px 0 0;
     width: 36px;
@@ -41,12 +41,12 @@
 }
 
 @media screen and (max-width: 868px) {
-    .filter__input {
+    .filter__checkbox-input {
         margin: 0;
     }
 }
 
-.filter__input:checked {
+.filter__checkbox-input:checked {
     background-image: url('../../images/chek2_.svg');
 }
 

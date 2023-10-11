@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 520px) {
     .portfolio {
-        margin: 0 10px 60px 5px;
+        margin: 0 15px 60px 15px;
     }
 }
 
@@ -51,19 +51,12 @@
 }
 
 .portfolio__list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 0 19px;
     margin: 0 0 20px;
     border-bottom: 1px solid rgba(232, 232, 232, 1);
 }
 
-@media screen and (max-width: 789px) {
-    .portfolio__list-item {}
-}
-
-.portfolio__list-item:last-child {
+.portfolio__list-item_line {
     border-bottom: none;
 }
 
@@ -116,4 +109,6 @@
 
 .portfolio__list-link {
     text-decoration: none;
+    display: flex;
+    justify-content: space-between;
 }

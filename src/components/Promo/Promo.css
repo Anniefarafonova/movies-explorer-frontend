@@ -40,7 +40,7 @@
     }
 }
 
-.promo__title {
+.promo__container-title {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -54,7 +54,7 @@
 }
 
 @media screen and (max-width: 989px) {
-    .promo__title {
+    .promo__container-title {
         font-size: 40px;
         line-height: 50px;
         text-align: center;
@@ -62,14 +62,14 @@
 }
 
 @media screen and (max-width: 520px) {
-    .promo__title {
+    .promo__container-title {
         font-size: 28px;
         line-height: 38px;
 
     }
 }
 
-.promo__text {
+.promo__container-text {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -83,19 +83,19 @@
 }
 
 @media screen and (max-width: 989px) {
-    .promo__text {
+    .promo__container-text {
         max-width: 260px;
         margin: 25px auto 90px;
     }
 }
 
 @media screen and (max-width: 520px) {
-    .promo__text {
+    .promo__container-text {
         margin: 25px auto 80px;
     }
 }
 
-.promo__link {
+.promo__container-link {
     margin: 0;
     padding: 10px 10px;
     max-width: 129px;
@@ -118,7 +118,7 @@
 }
 
 @media screen and (max-width: 989px) {
-    .promo__link {
+    .promo__container-link {
 
         max-width: 129px;
         padding: 0;
@@ -129,7 +129,7 @@
 }
 
 @media screen and (max-width: 520px) {
-    .promo__link {}
+    .promo__container-link {}
 }
 
 .promo__img {

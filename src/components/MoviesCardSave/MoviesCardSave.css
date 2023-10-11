@@ -1,5 +1,5 @@
 
-.element__dislike-button {
+.element__list-dislike {
     background-image: url(../../images/dislike.svg);
     background-repeat: no-repeat;
     background-color: transparent;
@@ -11,13 +11,12 @@
     height: 24px;
 }
 
-.element__like-button:hover {
+.element__list-dislike:hover {
     opacity: 50%;
 }
 
-.element__list {}
 
-.element__title {
+.element__list-title {
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -28,7 +27,7 @@
     margin: 0;
 }
 
-.element__time {
+.element__list-time {
     border-top: 1px solid rgba(232, 232, 232, 1);
     margin: 0;
     padding: 9px 0 0;
@@ -40,31 +39,4 @@
     align-items: center;
     color: #A0A0A0;
 
-}
-.elements__container {
-    display: flex;
-    max-width: 320px;
-    height: 36px;
-    margin: 0 auto 100px;
-    background: #F9F9F9;
-}
-@media screen and (max-width: 668px) {
-    .elements__container {
-        max-width: 240px;
-    }
-}
-.elements__container-button {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-    border: none;
-    max-width: 200px;
-    margin: 0 auto;
-    padding: 0;
-    background: transparent;
 }

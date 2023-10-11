@@ -10,14 +10,21 @@
     max-width: 410px;
 }
 
+@media screen and (max-width: 800px) {
+    .profile__container {
+        margin: 160px auto 216px;
+    }
+}
+
 @media screen and (max-width: 520px) {
     .profile__container {
         max-width: 260px;
+        margin: 0px auto 0;
     }
 }
 
 
-.form__container-title_profile {
+.form__title_profile {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -25,22 +32,38 @@
     line-height: 29px;
     color: #000000;
     max-width: 410px;
-    margin: 65px auto 120px;
+    margin: 75px auto 120px;
     text-align: center;
 }
 
-@media screen and (max-width: 520px) {
-    .form__container-title_profile {}
+@media screen and (max-width: 900px) {
+    .form__title_profile {
+        margin: 75px auto 95px;
+    }
 }
 
-.form__container-texts_profile {
-    margin: 0 auto 203px;
+@media screen and (max-width: 500px) {
+    .form__title_profile {
+        margin: 70px auto 75px;
+    }
+}
+
+.form__container_profile {
+    margin: 0 auto 195px;
     min-width: 410px;
+    display: block;
+}
+
+@media screen and (max-width: 900px) {
+    .form__container_profile {
+        margin: 0 auto 185px;
+    }
 }
 
 @media screen and (max-width: 520px) {
-    .form__container-texts_profile {
+    .form__container_profile {
         min-width: 260px;
+        margin: 0 auto 350px;
     }
 }
 
@@ -74,7 +97,7 @@
 } */
 
 
-.form__item_profile {
+.form__container-item_profile {
     font-style: normal;
     font-weight: 400;
     font-size: 11px;
@@ -84,7 +107,7 @@
     border-bottom: none;
 }
 
-.form__item_profile :focus {
+.form__container-item_profile :focus {
     border-bottom: none;
 }
 
@@ -92,15 +115,15 @@
     .form__item_profile {}
 }
 
-.form__item_profile-name {
+.form__container-item__profile-name {
     min-width: 120px;
 }
 
-.form__item_profile-email {
+.form__container-item__profile-email {
     min-width: 120px;
 }
 
-.form__item-span {
+.form__container-span {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -110,7 +133,7 @@
 
 }
 
-.form__item-span_profile {
+.form__container-span_profile {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -119,7 +142,7 @@
     color: #000000;
 }
 
-.profile__button {
+.form__button-profile {
     min-width: 410px;
     border: none;
     background: none;
@@ -133,14 +156,14 @@
 }
 
 @media screen and (max-width: 520px) {
-    .profile__button {
+    .form__button-profile {
         min-width: 200px;
     }
 }
 
 
 
-.profile__button-edit {
+.form__button-profile_edit {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -153,7 +176,7 @@
 }
 
 @media screen and (max-width: 520px) {
-    .profile__button-edit {
+    .form__button-profile_edit {
         font-size: 12px;
         line-height: 15px;
 
@@ -162,7 +185,7 @@
     }
 }
 
-.profile__button-signout {
+.form__button-profile_signout {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -173,7 +196,7 @@
 }
 
 @media screen and (max-width: 520px) {
-    .profile__button-signout {
+    .form__button-profile_signout {
         font-size: 12px;
         line-height: 15px;
 

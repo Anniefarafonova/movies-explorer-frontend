@@ -53,9 +53,8 @@
     }
 }
 
-.aboutproject__info {}
 
-.aboutproject__title {
+.aboutproject__container-title {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -68,33 +67,29 @@
 }
 
 @media screen and (max-width: 520px) {
-    .aboutproject__title {
+    .aboutproject__container-title {
         font-size: 18px;
         line-height: 22px;
         margin: 0 0 20px;
     }
 }
 
-.aboutproject__title_two {
+.aboutproject__container-title_two {
     padding-left: 35px;
 }
 
 @media screen and (max-width: 520px) {
-    .aboutproject__title_two {
+    .aboutproject__container-title_two {
         padding-left: 0;
     }
 }
 
 
-.aboutproject__text_two {
+.aboutproject__container-text_two {
     padding-left: 35px;
 }
 
-@media screen and (max-width: 789px) {
-    .aboutproject__text_two {}
-}
-
-.aboutproject__text {
+.aboutproject__container-text {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -106,7 +101,7 @@
 }
 
 @media screen and (max-width: 520px) {
-    .aboutproject__text {
+    .aboutproject__container-text {
         font-size: 11px;
         line-height: 16px;
         margin-bottom: 55px;
@@ -137,45 +132,37 @@
     }
 }
 
-.aboutproject__time_one {
+.aboutproject__containers-time_one {
     width: 228px;
     background-color: rgba(43, 224, 128, 1);
 }
 
-@media screen and (max-width: 1216px) {
-    .aboutproject__time_one {
-        /* min-width: 158px; */
-    }
-}
 
 @media screen and (max-width: 789px) {
-    .aboutproject__time_one {
+    .aboutproject__containers-time_one {
         width: 260px;
     }
 }
 
 @media screen and (max-width: 520px) {
-    .aboutproject__time_one {
+    .aboutproject__containers-time_one {
         width: 100px;
     }
 }
 
-.aboutproject__time_two {
+.aboutproject__containers-time_two {
     width: 912px;
     background-color: rgba(242, 242, 242, 1);
 }
 
-@media screen and (max-width: 789px) {
-    .aboutproject__time_two {}
-}
 
 @media screen and (max-width: 520px) {
-    .aboutproject__time_two {
+    .aboutproject__containers-time_two {
         width: 184px;
     }
 }
 
-.aboutproject__list-info {
+.aboutproject__containers-list {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -188,7 +175,7 @@
 
 
 @media screen and (max-width: 520px) {
-    .aboutproject__list-info {
+    .aboutproject__containers-list {
         font-size: 11px;
         line-height: 13px;
         margin: 12px 0;
@@ -198,7 +185,7 @@
 
 
 
-.aboutproject__list-text {
+.aboutproject__containers-text {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -211,7 +198,7 @@
 }
 
 @media screen and (max-width: 520px) {
-    .aboutproject__list-text {
+    .aboutproject__containers-text {
         font-weight: 400;
         font-size: 11px;
         line-height: 13px;

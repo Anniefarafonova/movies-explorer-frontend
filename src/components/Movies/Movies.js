@@ -16,15 +16,17 @@ import Footer from '../Footer/Footer';
 
 
 
-export default function Movies() {
+export default function Movies({ onBurger, isOpen }) {
   return (
     <>
+
+      <HeaderAuth />
       <main className="main">
-        <HeaderAuth />
         <SearchForm />
         {/* <Preloader /> */}
         <MoviesCardList />
       </main>
+      <Footer />
     </>
   )
 }

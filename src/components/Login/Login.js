@@ -15,21 +15,21 @@ export default function Login({ onRegister }) {
                             <img className="login__container-logo" src={imageLogo} alt="Логотип" />
                         </Link>
                         <form className="form form_login" name="form-login" noValidate>
-                            <h1 className="form__container-title form__container-title_login">Рады видеть!</h1>
-                            <div className="form__container-texts form__container-texts_login" >
-                                <label className="form__item-span">E-mail</label>
-                                <input id="email" type="email" placeholder=" " name="email"
-                                    className="form__item form__item_login  form__item_login-email" required />
-                                <label className="form__item-span">Пароль</label>
-                                <input id="password" type="password" placeholder="" name="password"
-                                    className="form__item form__item_login form__item_login-password" requiredvalue />
+                            <h1 className="form__title form__title_login">Рады видеть!</h1>
+                            <div className="form__container form__container_login" >
+                                <label className="form__container-span">E-mail</label>
+                                <input id="email" type="email" placeholder="введите E--mail" name="email"
+                                    className="form__container-item form__container-item_login form__container-item__login-email" required />
+                                <label className="form__container-span">Пароль</label>
+                                <input id="password" type="password" placeholder="введите пароль" name="password"
+                                    className="form__container-item form__container-item_login form__container-item__login-password" required />
                             </div>
-                            <button type="submit" aria-label="Зарегистрироваться" className="login__saved-button">Войти</button>
+                            <button type="submit" aria-label="Зарегистрироваться" className="form__button-login">Войти</button>
                         </form>
 
-                        <p className="login__subtitle">
+                        <p className="login__container-subtitle">
                             Ещё не зарегистрированы?
-                            <Link to="/signup" className="login__subtitle-link">Регистрация</Link>
+                            <Link to="/signup" className="login__container-link">Регистрация</Link>
                         </p>
                     </div>
                 </section>

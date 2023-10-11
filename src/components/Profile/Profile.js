@@ -7,32 +7,33 @@ export default function Profile({ name }) {
 
     return (
         <>
-          <HeaderAuth />
+            <HeaderAuth />
             <section className="profile">
                 <div className="profile__container">
-                    <form className="form form_profile" name="form-login" noValidate>
-                        <h2 className="form__container-title form__container-title_profile">Привет, Виталий!</h2>
-                        <div className="form__container-texts form__container-texts_profile" >
+                    <form className="form form_profile" name="form-profile" noValidate>
+                        <h2 className="form__title form__title_profile">Привет, Виталий!</h2>
+                        <div className="form__container form__container_profile">
                             <div className="form__container-name" >
-                                <label className="form__item-span form__item-span_profile">Имя</label>
+                                <label className="form__container-span form__container-span_profile">Имя</label>
                                 <div className="form__container-names" >
                                     <input id="name" type="text" placeholder="" name="name"
-                                        className="form__item form__item_profile  form__item_profile-name" required />
+                                        className="form__container-item form__container-item_profile form__container-item__profile-name" required />
                                 </div>
                             </div>
                             <div className="form__container-name" >
-                                <label className="form__item-span form__item-span_profile">E-mail</label>
+                                <label className="form__container-span form__container-span_profile">E-mail</label>
                                 <div className="form__container-names" >
                                     <input id="email" type="email" placeholder=" " name="email"
-                                        className="form__item form__item_profile form__item_profile-email" required />
+                                        className="form__container-item form__container-item_profile form__container-item__profile-email" required />
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" aria-label="Редактировать" className="profile__button profile__button-edit">Редактировать</button>
+                        <button type="submit" aria-label="Редактировать" className="form__button-profile form__button-profile_edit">Редактировать</button>
                         <Link to="/" className="profile__button-link">
-                        <button type="submit" aria-label="Выйти из аккаунта" className="profile__button profile__button-signout">Выйти из аккаунта</button>
+                            <button type="submit" aria-label="Выйти из аккаунта" className="form__button-profile form__button-profile_signout">Выйти из аккаунта</button>
                         </Link>
                     </form>
+
                 </div>
             </section>
         </>

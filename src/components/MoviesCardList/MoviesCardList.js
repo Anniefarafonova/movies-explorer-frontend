@@ -11,13 +11,12 @@ export default function MoviesCardList({ }) {
     return (
         <>
             <section className="elements">
-                <div className="elements__list-template">
+                <ul className="elements__list-template">
                     <MoviesCard />
-                </div>
+                </ul>
                 <div className="elements__container">
                     <button className="elements__container-button" type="button">Ещё</button>
                 </div>
-                <Footer />
             </section>
         </>
     )

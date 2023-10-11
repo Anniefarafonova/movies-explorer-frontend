@@ -18,7 +18,6 @@ export default function MoviesCardListSave({ }) {
                 <div className="elements__container">
                     <button className="elements__container-button" type="button">Ещё</button>
                 </div>
-                <Footer />
             </section>
         </>
     )

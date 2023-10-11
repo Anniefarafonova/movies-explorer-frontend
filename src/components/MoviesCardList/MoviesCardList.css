@@ -1,20 +1,45 @@
 .elements {
-    min-height: 1114px;
     box-sizing: border-box;
     margin: 55px auto 0;
     z-index: 1;
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 970px) {
     .elements {
         margin: 115px auto 0;
         max-width: 708px;
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 770px) {
     .elements {
-        margin: 90px auto 0;
+        margin: 75px auto 0;
         max-width: 300px;
     }
 }
+
+.elements__container-button {
+    justify-content: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    border: none;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 6px;
+    background-color: #F9F9F9;
+}
+
+@media screen and (max-width: 520px) {
+    .elements__container-button {
+        max-width: 240px;
+    }
+}
+
+.elements__container-text {}

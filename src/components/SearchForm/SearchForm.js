@@ -11,25 +11,25 @@ export default function SearchForm({ onRegister }) {
     <>
       <section className="searchForm">
         <form className="searchForm__form" name="form-search" noValidate="">
-  
-        <label className="searchForm__form-search">
-          <input
-            type="text"
-            placeholder="Фильм"
-            name="Фильм"
-            className="searchForm__form-input"
-            required=""
-          />
-          <button
-            type="submit"
-            aria-label="Найти"
-            className="searchForm__saved-button"
-          >
-            Найти
-          </button>
-       </label>
-          <div className="searchForm__checkbox">
-          <FilterCheckbox/>
+
+          <label className="searchForm__form-search">
+            <input
+              type="text"
+              placeholder="Фильм"
+              name="Фильм"
+              className="searchForm__form-input"
+              required
+            />
+            <button
+              type="submit"
+              aria-label="Найти"
+              className="searchForm__form-button"
+            >
+              Найти
+            </button>
+          </label>
+          <div className="searchForm__form-checkbox">
+            <FilterCheckbox />
           </div>
         </form>
       </section>

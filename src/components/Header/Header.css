@@ -1,14 +1,11 @@
 .header {
     display: flex;
     justify-content: space-between;
-    /* background-color: #073042; */
     margin: 0 auto;
-    /* padding: 12px 65px 0 65px; */
     box-sizing: border-box;
     min-height: 74px;
     color: white;
 }
-
 
 .header_main {
     padding: 20px 70px 0 70px;
@@ -36,7 +33,7 @@
 
 @media screen and (max-width: 789px) {
     .header__logo {
-        margin: 0;
+        margin: 0 0 0 15px;
     }
 }
 
@@ -44,20 +41,20 @@
 
 
 
-.header__list-links {
+.header__list {
     min-width: 183px;
     display: flex;
     align-items: baseline;
 }
 
 @media screen and (max-width: 768px) {
-    .header__list-links {
+    .header__list {
         min-width: 108px;
     }
 }
 
 @media screen and (max-width: 420px) {
-    .header__list-links {
+    .header__list {
         min-width: 108px;
         margin: 9px 0 0 0;
     }

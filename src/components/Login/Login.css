@@ -4,8 +4,14 @@
 }
 
 .login__container {
-    margin: 60px auto 216px;
+    margin: 70px auto 216px;
     max-width: 396px;
+}
+
+@media screen and (max-width: 800px) {
+    .login__container {
+        margin: 230px auto 216px;
+    }
 }
 
 @media screen and (max-width: 520px) {
@@ -21,69 +27,71 @@
     margin: 0 auto;
 }
 
+@media screen and (max-width: 400px) {
+    .login__container-logo {
+        margin: 5px auto 0;
+        display: block;
+    }
+}
+
 .form {
     display: flex;
     flex-direction: column;
 }
 
-.form__container-title {
+.form__title {
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
     color: #000000;
     max-width: 396px;
-    margin: 40px 0 30px;
+    margin: 40px 0 35px;
 }
 
 @media screen and (max-width: 520px) {
-    .form__container-title {
+    .form__title {
         margin: 45px auto 85px;
         max-width: 320px;
         margin: 50px auto 80px;
     }
 }
 
-.form__container-texts {
-    margin: 0;
+.form__container {
     display: flex;
     flex-direction: column;
 }
 
-@media screen and (max-width: 520px) {
-    .form__container-texts {
-        display: flex;
-        margin: 0;
-        flex-direction: column;
-        margin: 0 0 0 20px;
-    }
+.form__container-item {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    border-bottom: 1px solid #E8E8E8;
 }
 
-
-
-.form__item_login {
-    padding: 0 0 14px;
+.form__container-item_login {
+    padding: 10px 0 14px;
     margin: 0 0 15px;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
     color: #000000;
-    border-bottom: 1px solid #E8E8E8;
 
 }
 
-.form__item_login:focus {
+.form__container-item_login:focus {
     border-bottom: 1px solid rgba(52, 86, 243, 1);
 }
 
 @media screen and (max-width: 520px) {
-    .form__item_login {
+    .form__container-item_login {
         padding: 0 0 10px;
         margin: 0 0 25px;
     }
 }
 
-.form__item-span {
+.form__container-span {
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
@@ -92,13 +100,13 @@
 }
 
 @media screen and (max-width: 520px) {
-    .form__item-span {
+    .form__container-span {
         margin-bottom: 5px;
     }
 }
 
 
-.login__saved-button {
+.form__button-login {
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -114,11 +122,11 @@
     border-radius: 2px;
     display: flex;
     justify-content: center;
-    margin: 205px auto 0;
+    margin: 200px auto 0;
 }
 
 @media screen and (max-width: 520px) {
-    .login__saved-button {
+    .form__button-login {
         min-width: 260px;
         margin: 285px auto 0;
         font-size: 12px;
@@ -126,7 +134,7 @@
     }
 }
 
-.login__subtitle {
+.login__container-subtitle {
     min-width: 285px;
     display: flex;
     justify-content: space-around;
@@ -140,14 +148,14 @@
 }
 
 @media screen and (max-width: 520px) {
-    .login__subtitle {
+    .login__container-subtitle {
         font-size: 12px;
         line-height: 15px;
         max-width: 246px;
     }
 }
 
-.login__subtitle-link {
+.login__container-link {
     text-decoration: none;
     color: rgba(52, 86, 243, 1);
     margin-left: 6px;

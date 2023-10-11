@@ -11,13 +11,13 @@ export default function Promo({ children }) {
 
       <section className="promo">
         <div className="promo__container">
-          <h1 className="promo__title">
+          <h1 className="promo__container-title">
             Учебный проект студента факультета Веб‑разработки.
           </h1>
-          <p className="promo__text">
+          <p className="promo__container-text">
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
-          <HashLink className="promo__link" smooth to='/#section1'> Узнать больше </HashLink>
+          <HashLink className="promo__container-link" smooth to='/#section1'> Узнать больше </HashLink>
         </div>
         <img className="promo__img" src={imageLanding} alt="Логотип" />
       </section>

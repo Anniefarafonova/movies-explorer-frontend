@@ -8,11 +8,11 @@ export default function Header({ children }) {
   return (
     //не зарегистрирован
 
-    <header className="header header_main">
+    <header className="header header_main ">
       <Link to="/">
         <img className="header__logo" src={imageLogo} alt="Логотип" />
       </Link>
-      <nav className="header__list-links">
+      <nav className="header__list">
         <Link to="/signup" className="header__list-link header__list-link_registr">Регистрация</Link>
         <Link to="/signin" className="header__list-link header__list-link_logn">Войти</Link>
       </nav>
