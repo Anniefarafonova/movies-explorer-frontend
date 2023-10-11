@@ -14,15 +14,15 @@ export default function Burger({  }) {
                 <div className="header__menu-container">
                     <ul className="header__box">
                         <li className='header__box-items'>
-                            <Link to="/" className="header__box-item">Главная</Link>
+                            <Link to="/" className="header__box-item" rel=''>Главная</Link>
                         </li>
                         <li className='header__box-items'>
-                            <Link to="/movies" className="header__box-item">Фильмы</Link>
+                            <Link to="/movies" className="header__box-item" rel=''>Фильмы</Link>
                         </li>
                         <li className='header__box-items'>
-                            <Link to="/saved-movies" className="header__box-item">Сохранённые фильмы</Link>
+                            <Link to="/saved-movies" className="header__box-item" rel=''>Сохранённые фильмы</Link>
 
-                            <Link to="/profile">
+                            <Link to="/profile" rel=''>
                                 <div className="hamburger__acaunt"></div>
                             </Link>
 

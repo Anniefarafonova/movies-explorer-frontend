@@ -11,7 +11,7 @@ export default function Register({ onRegister }) {
             <main className="main">
                 <section className="register">
                     <div className="register__container">
-                        <Link to="/">
+                        <Link to="/" rel=''>
                             <img className="register__container-logo" src={imageLogo} alt="Логотип" />
                         </Link>
                         <form className="form form_login" name="form-login" noValidate>
@@ -32,7 +32,7 @@ export default function Register({ onRegister }) {
 
                         <p className="register__container-subtitle  register__subtitle">
                             Уже зарегистрированы?
-                            <Link to="/signin" className="register__container-link">Войти</Link>
+                            <Link to="/signin" className="register__container-link" rel=''>Войти</Link>
                         </p>
                     </div>
                 </section>

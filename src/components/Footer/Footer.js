@@ -11,12 +11,12 @@ export default function Footer() {
         <nav className="footer__navigation">
           <ul className="footer__navigation-list">
             <li className="footer__navigation-links">
-              <Link to="https://practicum.yandex.ru/" className="footer__navigation-link" target="_blank">
+              <Link to="https://practicum.yandex.ru/" className="footer__navigation-link" target="_blank" rel=''>
                 Яндекс.Практикум
               </Link>
             </li>
             <li className="footer__navigation-links">
-              <Link to="https://github.com/git-guides" className="footer__navigation-link" target="_blank">
+              <Link to="https://github.com/git-guides" className="footer__navigation-link" target="_blank" rel=''>
                 Github
               </Link>
             </li>

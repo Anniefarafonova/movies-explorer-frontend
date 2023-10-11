@@ -12,7 +12,7 @@ export default function Portfolio() {
                 <h3 className="portfolio__title">Портфолио</h3>
                 <ul className="portfolio__list">
                     <li className="portfolio__list-item">
-                        <Link to="https://github.com/Anniefarafonova/react-mesto-auth" className="portfolio__list-link" target="_blank">
+                        <Link to="https://github.com/Anniefarafonova/react-mesto-auth" className="portfolio__list-link" target="_blank" rel=''>
                             <p className="portfolio__list-text">Статичный сайт</p>
                             <img
                                 className="portfolio__list-img"
@@ -23,7 +23,7 @@ export default function Portfolio() {
                     </li>
 
                     <li className="portfolio__list-item">
-                        <Link to="https://github.com/Anniefarafonova/russian-travel" className="portfolio__list-link" target="_blank">
+                        <Link to="https://github.com/Anniefarafonova/russian-travel" className="portfolio__list-link" target="_blank" rel=''>
                             <p className="portfolio__list-text">Адаптивный сайт</p>
                             <img
                                 className="portfolio__list-img"
@@ -33,7 +33,7 @@ export default function Portfolio() {
                         </Link>
                     </li>
                     <li className="portfolio__list-item portfolio__list-item_line">
-                        <Link to="https://github.com/Anniefarafonova/how-to-learn" className="portfolio__list-link" target="_blank">
+                        <Link to="https://github.com/Anniefarafonova/how-to-learn" className="portfolio__list-link" target="_blank" rel=''>
                             <p className="portfolio__list-text">Одностраничное приложение</p>
                             <img
                                 className="portfolio__list-img"

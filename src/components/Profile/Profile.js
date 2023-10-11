@@ -29,7 +29,7 @@ export default function Profile({ name }) {
                             </div>
                         </div>
                         <button type="submit" aria-label="Редактировать" className="form__button-profile form__button-profile_edit">Редактировать</button>
-                        <Link to="/" className="profile__button-link">
+                        <Link to="/" className="profile__button-link" rel=''>
                             <button type="submit" aria-label="Выйти из аккаунта" className="form__button-profile form__button-profile_signout">Выйти из аккаунта</button>
                         </Link>
                     </form>
