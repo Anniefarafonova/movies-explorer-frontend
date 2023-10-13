@@ -115,11 +115,11 @@
     .form__item_profile {}
 }
 
-.form__container-item__profile-name {
+.form__container-item_profile_name{
     min-width: 120px;
 }
 
-.form__container-item__profile-email {
+.form__container-item_profile_email{
     min-width: 120px;
 }
 
@@ -185,7 +185,7 @@
     }
 }
 
-.form__button-profile_signout {
+.profile__button-link {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -193,17 +193,14 @@
     line-height: 16px;
     text-align: center;
     color: rgba(255, 48, 85, 1);
-}
 
+    text-decoration: none;
+}
 @media screen and (max-width: 520px) {
-    .form__button-profile_signout {
+    .profile__button-link  {
         font-size: 12px;
         line-height: 15px;
 
 
     }
-}
-
-.profile__button-link {
-    text-decoration: none;
 }

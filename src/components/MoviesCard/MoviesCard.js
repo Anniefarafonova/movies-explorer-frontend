@@ -18,7 +18,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -32,7 +34,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -46,7 +50,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -60,7 +66,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -74,7 +82,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -88,7 +98,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -102,7 +114,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -116,7 +130,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -130,7 +146,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -144,7 +162,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -158,7 +178,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -172,7 +194,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -186,7 +210,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -200,7 +226,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -214,7 +242,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
             <article className="element">
@@ -228,7 +258,9 @@ export default function MoviesCard({ }) {
                             aria-label="Значок лайк"
                         />
                     </li>
-                    <p className="element__list-time">1ч 42м</p>
+                    <li className="element__list-item">
+                        <p className="element__list-time">1ч 42м</p>
+                    </li>
                 </ul>
             </article>
 

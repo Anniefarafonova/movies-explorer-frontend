@@ -5,7 +5,27 @@ import './Register.css';
 
 
 export default function Register({ onRegister }) {
-
+    const initialValuesRegister = {
+        name: '',
+        email: '',
+        password: '',
+    };
+    const [valuesRegister, setValuesRegister] = useState(initialValuesRegister);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValuesRegister({
+            ...valuesRegister,
+            [name]: value
+        });
+    }
+    function handleSubmit(e) {
+        e.preventDefault();
+        onRegister(valuesRegister)
+        reset(e)
+    }
+    function reset(e) {
+        setValuesRegister(initialValuesRegister)
+    }
     return (
         <>
             <main className="main">
@@ -14,18 +34,18 @@ export default function Register({ onRegister }) {
                         <Link to="/" rel=''>
                             <img className="register__container-logo" src={imageLogo} alt="Логотип" />
                         </Link>
-                        <form className="form form_login" name="form-login" noValidate>
+                        <form className="form form_login" name="form-login" onSubmit={handleSubmit} noValidate>
                             <h1 className="form__title form__title_login">Добро пожаловать!</h1>
                             <div className="form__container form__container_login" >
                                 <label className="form__container-span">Имя</label>
                                 <input id="name" type="text" placeholder="" name="name"
-                                    className="form__container-item form__container-item_register form__container-item__login-name" required />
+                                    className="form__container-item form__container-item_register" onChange={handleChange}  value={valuesRegister.name}  required />
                                 <label className="form__container-span">E-mail</label>
                                 <input id="email" type="email" placeholder=" " name="email"
-                                    className="form__container-item form__container-item_register form__container-item__login-email" required />
+                                    className="form__container-item form__container-item_register" onChange={handleChange}  value={valuesRegister.email}  required />
                                 <label className="form__container-span">Пароль</label>
                                 <input id="password" type="password" placeholder="" name="password"
-                                    className="form__container-item form__container-item_register form__container-item__login-password" required />
+                                    className="form__container-item form__container-item_register" onChange={handleChange} value={valuesRegister.password} required />
                             </div>
                             <button type="submit" aria-label="Зарегистрироваться" className="form__button-register" >Зарегистрироваться</button>
                         </form>

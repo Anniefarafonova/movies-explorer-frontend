@@ -11,19 +11,19 @@ import "./Main.css";
 import Footer from "../Footer/Footer";
 import Preloader from "../Preloader/Preloader";
 
-export default function Main({}) {
+export default function Main({ loggedIn, email }) {
   return (
     <>
-      {/* <Header /> */}
-      <HeaderAuth />
+    <Header/>
+      {/* <HeaderAuth/> */}
       <main className="main">
         <Promo />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Portfolio />
-        </main>
-        <Footer />
+      </main>
+      <Footer />
     </>
   );
 }

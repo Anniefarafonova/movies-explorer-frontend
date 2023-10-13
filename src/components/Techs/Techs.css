@@ -1,7 +1,12 @@
 .techs {
-    background: rgba(245, 245, 245, 1);
+    background:#F5F5F5;
     position: relative;
     z-index: 1;
+}
+@media screen and (max-width: 350px) {
+    .techs {
+        background:#FFFFFF;
+    }
 }
 
 .techs__header {
@@ -82,6 +87,7 @@
         font-size: 11px;
         line-height: 16px;
         margin: 0 auto 50px;
+        max-width: 292px;
     }
 }
 

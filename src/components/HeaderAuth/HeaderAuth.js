@@ -5,7 +5,7 @@ import icon from '../../images/icon.png'
 import './HeaderAuth.css';
 import Burger from '../Burger/Burger';
 
-export default function HeaderAuth({ onBurger, isOpen }) {
+export default function HeaderAuth({loggedIn }) {
     const location = useLocation();
     return (
         <>
@@ -25,7 +25,7 @@ export default function HeaderAuth({ onBurger, isOpen }) {
                 </ul>
                 <div className={`header__flag ${location.pathname === '/' ? 'header__flag_dark' : ''}`} >
                     <Link to="/profile" className="header__flag-list" rel=''>
-                        <h4 className="header__flag-title">Аккаунт</h4>
+                        <p className="header__flag-title">Аккаунт</p>
                     </Link>
                     <div className="header__flag-circle">
                         <img src={icon} alt="иконка" />

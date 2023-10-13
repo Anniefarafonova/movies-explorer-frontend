@@ -1,12 +1,12 @@
 .portfolio {
-    margin: 0 40px 100px 65px;
+    margin: 0 75px 100px 65px;
     position: relative;
     z-index: 1;
 }
 
 @media screen and (max-width: 789px) {
     .portfolio {
-        margin: 0 40px 80px 45px;
+        margin: 0 55px 80px 45px;
     }
 }
 
@@ -29,7 +29,9 @@
 }
 
 @media screen and (max-width: 789px) {
-    .portfolio__title {}
+    .portfolio__title {
+        margin: 0 0 45px;
+    }
 }
 
 @media screen and (max-width: 520px) {
@@ -111,4 +113,5 @@
     text-decoration: none;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
