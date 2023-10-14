@@ -2,13 +2,14 @@
     box-sizing: border-box;
     margin: 55px auto 0;
     z-index: 1;
+    max-width: 1140px;
 }
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1269px) {
     .elements{
         max-width: 1000px;
     }
 }
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1108px) {
     .elements {
         margin: 115px auto 0;
         max-width: 708px;

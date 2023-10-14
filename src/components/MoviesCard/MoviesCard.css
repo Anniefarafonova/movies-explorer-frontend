@@ -7,10 +7,10 @@
 }
 @media screen and (max-width: 1260px) {
     .element{
-      
+        max-width: 860px;
     }
 }
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1108px) {
     .element {
         max-width: 339px;
         max-height: 269px;
@@ -46,7 +46,7 @@
     gap: 38px 20px;
     box-sizing: border-box;
     padding: 0;
-    margin: 0 70px 60px;
+    margin: 0 auto 60px;
     max-width: 1170px;
 }
 @media screen and (max-width: 1260px) {
@@ -85,7 +85,7 @@
     background-color: blueviolet;
 }
 
-@media screen and (max-width: 908px) {
+@media screen and (max-width: 1108px) {
     .element__image {
         max-width: 339px;
         min-height: 190px;
