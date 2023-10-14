@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashLink } from 'react-router-hash-link';
 import { Link, useNavigate } from 'react-router-dom';
-import imageLanding from '../../images/landing-logo.png'
+import imageLanding from '../../images/landing-logo.svg'
 import './Promo.css';
 
 

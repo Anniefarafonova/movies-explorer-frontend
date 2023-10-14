@@ -9,7 +9,7 @@ export default function HeaderAuth({loggedIn }) {
     const location = useLocation();
     return (
         <>
-            <header className={`header header_burger ${location.pathname === '/' ? 'header_dark' : 'header_light'}`} >
+            <header className={`header ${location.pathname === '/' ? 'header_dark' : 'header_light'}`} >
                 <Link to="/" rel=''>
                     <img className="header__logo" src={imageLogo} alt="Логотип" />
                 </Link>
@@ -31,7 +31,7 @@ export default function HeaderAuth({loggedIn }) {
                         <img src={icon} alt="иконка" />
                     </div>
                 </div>
-                <section className="header_burger">
+                <section className="header__burger">
                     <Burger />
                 </section>
             </header >

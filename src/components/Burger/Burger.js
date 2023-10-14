@@ -22,10 +22,11 @@ export default function Burger({ }) {
                         <li className='header__box-items'>
                             <Link to="/saved-movies" className="header__box-item" rel=''>Сохранённые фильмы</Link>
                         </li>
-                    
-                    <Link to="/profile" rel='' className="header__box-acaunt" >
-                        {/* <div className="header__box-acaunt"></div> */}
-                    </Link>
+                        <li className="header__box-acaunts" >
+                            <Link to="/profile" rel='' className="header__box-acaunt" >
+                                {/* <div className="header__box-acaunt"></div> */}
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

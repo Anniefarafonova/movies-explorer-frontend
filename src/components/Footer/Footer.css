@@ -18,11 +18,11 @@
     text-align: center;
     color: #A0A0A0;
     max-width: 320px;
-    margin: 90px auto 20px
+    margin: 85px auto 20px
 }
 @media screen and (max-width: 820px) {
     .footer__title {
-        margin: 70px auto 20px;
+        margin: 90px auto 20px;
     }
 }
 @media screen and (max-width: 520px) {
@@ -30,7 +30,7 @@
         max-width: 300px;
         font-size: 12px;
         line-height: 15px;
-        margin: 75px auto 40px;
+        margin: 70px auto 40px;
     }
 }
 
@@ -70,7 +70,7 @@
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    padding: 10px 0 0;
+    padding: 15px 0 0;
     margin: 0;
     align-items: center;
 }

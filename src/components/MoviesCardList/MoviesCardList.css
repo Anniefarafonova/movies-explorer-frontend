@@ -15,15 +15,21 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 758px) {
     .elements {
-        margin: 75px auto 0;
-        max-width: 300px;
+        max-width: 615px;
     }
 }
-@media screen and (max-width: 470px) {
-    .elements {
 
+@media screen and (max-width: 700px) {
+    .elements {
+        max-width: 495px;
+    }
+}
+@media screen and (max-width: 630px) {
+    .elements {
+        margin: 73px auto 0;
+        max-width: 300px;
     }
 }
 

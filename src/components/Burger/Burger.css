@@ -11,7 +11,7 @@
   }
 }
 
-.header__box-acaunt {
+.header__box-acaunts {
   height: 32px;
   background-image: url(../../images/profile.svg);
   width: 120px;
@@ -22,13 +22,13 @@
 }
 
 /* @media screen and (max-width: 768px) {
-    .header__box-acaunt {
+    .header__box-acaunts {
       margin: 370px auto 0;
     }
   } */
 
 @media screen and (max-width: 590px) {
-  .header__box-acaunt {
+  .header__box-acaunts {
   }
 }
 
@@ -173,20 +173,20 @@
   padding-top: 5px;
 }
 
-.header_burger {
+.header__burger {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .header_burger {
-    padding: 15px 20px 0 10px;
+  .header__burger {
+    padding: 10px 40px 0 10px;
     display: block;
   }
 }
 
 @media screen and (max-width: 520px) {
-  .header_burger {
-    padding: 16px 12px 0 0px;
+  .header__burger {
+    padding: 10px 10px 0 0px;
     display: block;
   }
 }

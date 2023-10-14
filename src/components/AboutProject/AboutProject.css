@@ -42,7 +42,7 @@
 
 @media screen and (max-width: 789px) {
     .aboutproject__container {
-        margin: 0 45px 85px;
+        margin: 0 45px 86px;
     }
 }
 
@@ -63,19 +63,19 @@
     letter-spacing: -0.04em;
     color: #000000;
     max-width: 550px;
-    margin: 0 0 26px;
+    margin: 0 0 20px;
 }
 
 @media screen and (max-width: 520px) {
     .aboutproject__container-title {
         font-size: 18px;
         line-height: 22px;
-        margin: 0 0 20px;
+        margin: 0 0 15px;
     }
 }
 
 .aboutproject__container-title_two {
-    padding-left: 35px;
+    padding-left: 25px;
 }
 
 @media screen and (max-width: 520px) {
@@ -86,7 +86,7 @@
 
 
 .aboutproject__container-text_two {
-    padding-left: 35px;
+    padding-left: 25px;
 }
 
 .aboutproject__container-text {
@@ -104,13 +104,13 @@
     .aboutproject__container-text {
         font-size: 11px;
         line-height: 16px;
-        margin-bottom: 55px;
+        margin-bottom: 59px;
         padding: 0;
     }
 }
 
 .aboutproject__containers {
-    margin: 0 60px 0px;
+    margin: 0 70px 0px;
     display: flex;
     flex-direction: row;
     max-height: 36px;

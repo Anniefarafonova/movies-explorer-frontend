@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 520px) {
     .portfolio {
-        margin: 0 15px 60px 15px;
+        margin: 0 20px 60px 15px;
     }
 }
 
@@ -30,7 +30,7 @@
 
 @media screen and (max-width: 789px) {
     .portfolio__title {
-        margin: 0 0 45px;
+        margin: 0 0 48px;
     }
 }
 
@@ -114,4 +114,11 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+
+@media screen and (max-width: 520px) {
+    .portfolio__list-link {
+        align-items: center;
+    }
+
 }

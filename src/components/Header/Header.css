@@ -6,7 +6,18 @@
     min-height: 74px;
     color: white;
 }
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 20px 0px 0 15px;
 
+    }
+}
+@media screen and (max-width: 528px) {
+    .header {
+        padding: 20px 10px 0 1px;
+
+    }
+}
 .header_main {
     padding: 20px 70px 0 70px;
     background-color: #073042;
