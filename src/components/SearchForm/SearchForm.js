@@ -33,8 +33,6 @@ export default function SearchForm({ searchFilms, allMovies, setAllMovies, isChe
   }
 
 
-
-
   return (
     <>
       <section className="searchForm">

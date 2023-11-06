@@ -78,8 +78,7 @@ export default function Movies({
     } else {
       setIsCheck(true)
       filtredMovie(isSearch, true, allMovies)
-      // localStorage.getItem('check', JSON.stringify(true))
-
+      localStorage.getItem('check', JSON.stringify(true))
       console.log("2");
     }
   }
@@ -103,95 +102,3 @@ export default function Movies({
   )
 }
 
-
-
-// -- Обновление состояний при первом рендере
-// useEffect(() => {
-//   filtredMovie(isSearch, isCheck, allMovies)
-
-
-
-
-
-// функция для фильтрации фильмов
-// const filtredMovie = allMovies.filter(movie => {
-//   return movie.nameRU.toLowerCase().includes(isSearch.toLowerCase()) ||
-//     movie.nameEN.toLowerCase().includes(isSearch.toLowerCase());
-
-// setFilteredMovies(movies.filter((movie) => {
-//   const searchName = movie.nameRU.toLowerCase().includes(search.toLowerCase())
-//   return isCheck ? (searchName && movie.duration <= 40) : searchName
-// }))
-// })
-
-
-// const filtredMovie = useCallback((isSearch, allMovies) => {
-//   setIsSearch(isSearch)
-//   // localStorage.setItem('movie', JSON.stringify(search))
-//   // localStorage.setItem('shorts', JSON.stringify(isCheck))
-//   // localStorage.setItem('allmovies', JSON.stringify(movies))
-
-//   setFilterMovies(allMovies.filter((movie) => {
-//     return movie.nameRU.toLowerCase().includes(isSearch.toLowerCase()) ||
-//       movie.nameEN.toLowerCase().includes(isSearch.toLowerCase());
-//   }))
-
-// }, [])
-
-
-
-
-
-
-
-
-
-// // функция для отрисовки фильмов
-// function searchFilms(search) {
-//   if (setAllMovies.length === 0) {
-//     MoviesApi.getMovie()//запрос к API фильмов
-//       .then((data) => {
-//         setAllMovies(data);
-//         setIsCheck(false)
-//         // filter(search, isCheck, res);
-//       })
-//       .catch((error) => {
-
-//         console.error(`Ошибка при поиске фильмов ${error}`);
-//       })
-//   }
-// };
-
-
-// const filter = useCallback((search, isCheck, movies) => {
-//   localStorage.setItem("movie", JSON.stringify(search));
-//   localStorage.setItem("shorts", JSON.stringify(isCheck));
-//   localStorage.setItem("allmovies", JSON.stringify(movies));
-
-//   setIsSearch(search);
-
-//   setFilterMovies(
-//     movies.filter((movie) => {
-//       const searchName =
-//         movie.nameRU.toLowerCase().includes(search.toLowerCase()) ||
-//         movie.nameEN.toLowerCase().includes(search.toLowerCase());
-
-//       return isCheck
-//         ? searchName && movie.duration <= 40
-//         : searchName;
-//     })
-//   );
-// }, []);
-
-// useEffect(() => {
-//   if (localStorage.allmovies && localStorage.shorts && localStorage.movie) {
-//     const movies = JSON.parse(localStorage.allmovies);
-//     const search = JSON.parse(localStorage.movie);
-//     const isCheck = JSON.parse(localStorage.shorts);
-//     setIsSearch(search);
-//     setIsCheck(isCheck);
-//     setAllMovies(movies);
-//     filter(search, isCheck, movies);
-
-//   }
-// }, [filter]);

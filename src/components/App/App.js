@@ -2,35 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import { CurrentUserContext } from '../../contexts/CurrentUserContextt/CurrentUserContext.js';
 import './App.css';
-// import Header from "../Header/Header.js";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
-// import SavedMovies from "../SavedMovies/SavedMovies";
-// import Profile from "../Profile/Profile";
-// import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import Error from "../Error/Error";
 import SavedMovies from '../SavedMovies/SavedMovies';
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
-import HeaderAuth from '../HeaderAuth/HeaderAuth';
 import MainApi from "../../utils/MainApi";
-import MoviesApi from "../../utils/MoviesApi";
-import Preloader from '../Preloader/Preloader.js';
-
-
-// import * as MainApi from "../../utils/MainApi.js";
-
-
-// import NotFoundErr from "../NotFoundErr/NotFoundErr";
-
-
 
 function App() {
   const navigate = useNavigate();
   // стейт попапов
-
   // стейт статусa пользователя  
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [isDone, setIsDone] = React.useState(false);
@@ -50,6 +34,7 @@ function App() {
   const [deleteId, setDeleteId] = useState('');
 
   const [isUpdateCheck, setIsUpdateCheck] = useState(true)
+  const [isWarning, setIsWarning] = useState(false);
 
 
   useEffect(() => {
@@ -70,13 +55,11 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-
           }
         });
     }
   }
 
-  const [isWarning, setIsWarning] = useState(false);
 
   //функция авторизации
   function onLogin(email, password) {
@@ -176,7 +159,6 @@ function App() {
       })
       .catch((error) => console.error(`Ошибка лайка ${error}`));
   }
-
   //функция Api
   useEffect(() => {
     loggedIn &&
@@ -204,7 +186,6 @@ function App() {
           <Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />
           <Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />
           <Route path="/*" element={<Error />} />
-
 
           <Route path="/movies" element={<ProtectedRouteElement
             element={Movies}

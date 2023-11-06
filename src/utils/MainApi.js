@@ -110,20 +110,12 @@ class MainApi {
             .then(this._checkResponse)
     }
 
-    // changeLikeStatus(data, movieId, isLiked, token) {
-    //     if (isLiked) {
-    //       return this.addMovie(data, token);
-    //     } else if (!isLiked) {
-    //       return this.deleteMovie(movieId, token);
-    //     }
-    //   }
-    
 }
 
 
 const apiMain = new MainApi({
-    baseUrl: 'http://localhost:3000',
-    // baseUrl: 'api.movies-explorer-api.nomoredomainsicu.ru',
+    // baseUrl: 'http://localhost:3000',
+    baseUrl: 'api.movies-explorer-api.nomoredomainsicu.ru',
     headers: {
         'Content-Type': 'application/json',
     },

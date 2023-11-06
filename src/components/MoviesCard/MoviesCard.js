@@ -40,8 +40,6 @@ export default function MoviesCard({ movie, filterMovies, savedMovies,  setSaved
                         <h2 className="element__list-title">{movie.nameRU}</h2>
                         {isSaved ? (
                             <button className="element__list-dislike" 
-                            // onClick={handleDeleteSubmit}
-                            // onClick={() => onDelete(data._id)}
                             onClick={() => handleDeleteSubmit(movie._id)}
                             />
                         ) : (
@@ -67,66 +65,3 @@ export default function MoviesCard({ movie, filterMovies, savedMovies,  setSaved
     )
 }
 
-
-
-
-
-    
-    //   function onClick() {
-    //     if (isLike) {
-    //         handleAddSubmit()
-    //         return
-    //     //   const moviesForSearch = savedMovies.find((i) => {
-    //     //     return i.movieId === movie.id;
-    //     // setSavedMovies((movie) => movie.map((c) => c._id === movie._id ? movie : c));
-          
-    //     //   handleDeleteSubmit(moviesForSearch._id);
-    //     } else {
-    //         // handleDeleteSubmit();
-    //     }
-    //     setIsLike(!isLike);
-    //   }
-    
-    //   function handleDeleteMovie(evt) {
-    //     evt.preventDefault()
-    //     handleDeleteSubmit(movie._id);
-    //   }
-
-
-     //   const [click, setClick] = useState(false)
-
-    //   useEffect(() => {
-    //     const isLiked = savedMovies.some(i => i === CurrentUserContext._id);
-    //     setIsLike(isLiked);
-    //     // setIsLike(savedMovies.some(element => movie.id === element.movieId))
-    //   }, [savedMovies])
-    
-    //   function onClick() {
-    //     if (isLike) {
-    //               const moviesForSearch = savedMovies.find((i) => {
-    //                 return i.movieId === movie.id.toString();
-    //               });
-    //     // if (savedMovies.some(element => movie.id === element.movieId)) {
-    //     //     setIsLike(true)
-    //     //     handleAddSubmit(movie)
-    //         console.log("yes");
-    //     } else {
-    //         setIsLike(false)
-    //         handleAddSubmit(movie)
-    //         console.log("not");
-    //     }
-    //   }
-
-
-    //   function handleCardLike(movie) {
-    //     const isLiked = savedMovies.some(i => i === currentUser._id);
-    //     MainApi
-    //       .changeLikeStatus(movie, movie._id, !isLiked, localStorage.token)
-    //       .then((newCard) => {
-    //         setSavedMovies((movie) => movie.map((c) => c._id === movie._id ? newCard : c));
-    //       })
-    //       .catch((error) => console.error(`Ошибка like ${error}`));
-    //     }
-    //     function onClick() {
-    //         handleCardLike(savedMovies);
-    //     }
