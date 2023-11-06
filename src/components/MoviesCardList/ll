@@ -1,0 +1,73 @@
+// import React, { useState, useEffect, useContext, useRef } from "react";
+// import { Link, useNavigate } from 'react-router-dom';
+// import './MoviesCardList.css';
+// import Footer from "../Footer/Footer";
+// import MoviesCard from "../MoviesCard/MoviesCard";
+// import { useResize, CARDS_SCREEN_XL, ADD_CARDS_SCREEN_XL, CARDS_SCREEN_LG, ADD_CARDS_SCREEN_LG, CARDS_SCREEN_SM, ADD_CARDS_SCREEN_SM } from '../../utils/allScreen';
+
+
+// export default function MoviesCardList({ allMovies, filterMovies }) {
+//     // console.log(window.innerWidth);
+//     const { width, isScreenSm, isScreenLg, isScreenXl } = useResize();
+
+//     const clickMore = () => {
+//         console.log("fg");
+//     }
+
+
+//     //   const click = () => {
+//     //  if (isScreenXl) {
+//     //     allMovies.slice(0, 16).map((data)=> (
+//     //          <MoviesCard
+//     //                         key={data._id}
+//     //                         data={data}
+//     //                     />
+//     //                 ))
+//     //  }
+
+
+//     //       }
+
+
+
+
+//     return (
+//         <section className="elements">
+//             {allMovies.length > 0 ? (
+//                 < ul className="elements__list-template">
+//             { allMovies.slice(0, 16).map((data) => (
+//                 <MoviesCard
+//                     key={data._id}
+//                     data={data}
+//                 />
+//             ))
+//             }
+//         </ul>
+//     ) : (
+//         <div className="elements__error">Ничего не найдено</div>
+//     )
+// }
+
+// <div className="elements__container">
+//     <button className="elements__container-button" type="button" onClick={clickMore}>Ещё</button>
+// </div>
+//         </section >
+
+//     )
+
+// }
+
+
+// {allMovies.length > 0 ? (
+//     <ul className="elements__list-template">
+//         {allMovies.map((data) => (
+//             <MoviesCard
+//                 key={data._id}
+//                 data={data}
+//             />
+//         ))}
+//     </ul>
+// ) : (
+//     <div className="elements__error">Ничего не найдено</div>
+// )
+// }

@@ -84,7 +84,7 @@
     background-color: blueviolet;
 }
 
-@media screen and (max-width: 1108px) {
+@media screen and (max-width: 1130px) {
     .element__image {
         max-width: 339px;
         min-height: 190px;
@@ -104,15 +104,33 @@
 
 
 .element__list-like {
-    background-image: url(../../images/like_1.svg);
+    background-image: url(../../images/like.svg);
+    /* src\images\like_active.svg */
     background-repeat: no-repeat;
     background-color: transparent;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    min-width: 20px;
+    height: 10px;
+}
+.element__list-like_active {
+    background-image: url(../../images/like_active.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
     border: none;
     cursor: pointer;
     padding: 0;
     margin: 0;
     min-width: 24px;
     height: 24px;
+    min-width: 20px;
+    height: 10px;
+
+
 }
 
 .element__list-like:hover {
@@ -141,7 +159,7 @@
     }
 }
 
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 1111px) {
     .element__list-self {
         max-width: 339px;
     }
@@ -176,11 +194,17 @@
 }
 
 .elements__container {
+    /* display: flex;
+    max-width: 320px;
+    height: 36px;
+    margin: 0 auto 70px;
+    background: #F9F9F9; */
+
     display: flex;
     max-width: 320px;
     height: 36px;
     margin: 0 auto 70px;
-    background: #F9F9F9;
+    background: #fffffff2;
 }
 
 @media screen and (max-width: 668px) {

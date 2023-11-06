@@ -4,7 +4,7 @@ import imageLogo from '../../images/logo.svg'
 import './FilterCheckbox.css';
 
 
-export default function FilterCheckbox({ }) {
+export default function FilterCheckbox({ isCheck, changeCheck}) {
 
     return (
         <>
@@ -12,7 +12,9 @@ export default function FilterCheckbox({ }) {
                 <label className="filter__checkbox">
                     <input
                         type="checkbox"
-                        className="filter__checkbox-input"
+                        className="filter__checkbox-input "
+                        checked={isCheck}
+                        onChange={changeCheck}
                     />
                 </label>
                 <p className="filter__title">Короткометражки</p>

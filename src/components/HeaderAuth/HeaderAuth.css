@@ -98,7 +98,12 @@
   text-decoration: none;
 
 }
-
+.header__container-link:hover{
+  text-decoration: underline;
+}
+.header__container-link:active{
+  color: #8d5757;
+}
 .header__container-link_dark {
   color: rgb(255, 255, 255);
 

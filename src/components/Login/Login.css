@@ -59,6 +59,7 @@
 .form__container {
     display: flex;
     flex-direction: column;
+    max-width: 396px;
 }
 
 .form__container-item {
@@ -71,7 +72,6 @@
 
 .form__container-item_login {
     padding: 10px 0 14px;
-    margin: 0 0 15px;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -159,4 +159,18 @@
     text-decoration: none;
     color: rgba(52, 86, 243, 1);
     margin-left: 6px;
+}
+
+
+.login__errors {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #a90000;
+    margin: 190px auto 10px;
+    opacity: 1;
+}
+.login__errors_active{
+    opacity: 0;
 }

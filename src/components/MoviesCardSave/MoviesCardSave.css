@@ -23,7 +23,7 @@
     line-height: 16px;
     color: #000000;
     max-width: 226px;
-    max-height: 32px;
+    min-height: 32px;
     margin: 0;
 }
 

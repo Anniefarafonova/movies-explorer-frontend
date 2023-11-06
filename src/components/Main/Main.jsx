@@ -12,10 +12,12 @@ import Footer from "../Footer/Footer";
 import Preloader from "../Preloader/Preloader";
 
 export default function Main({ loggedIn, email }) {
+
+ 
+
   return (
     <>
-    <Header/>
-      {/* <HeaderAuth/> */}
+      {loggedIn ?  < HeaderAuth /> : <Header />} 
       <main className="main">
         <Promo />
         <AboutProject />

@@ -5,7 +5,7 @@ import icon from '../../images/icon.png'
 import './HeaderAuth.css';
 import Burger from '../Burger/Burger';
 
-export default function HeaderAuth({loggedIn }) {
+export default function HeaderAuth({ loggedIn }) {
     const location = useLocation();
     return (
         <>

@@ -1,181 +1,133 @@
-// // /////////// Auth.js
+class MainApi {
+    constructor(options) {
+        this._url = options.baseUrl
+    }
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+    }
 
-// export const BASE_URL = 'https://api.movies-explorer-api.nomoredomainsicu.ru';
+    register (name, email, password) {
+  return fetch(`${this._url}/signup`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({name, email, password})
+  })
 
-// function checkStatus(res) {
-//   if (res.ok) {
-//     return res.json();
-//   }
-//   return Promise.reject(`Ошибка ${res.status}`);
-// }
+        .then(this._checkResponse)
+    }
 
-// export const register = (name, email, password) => {
-//   return fetch(`${BASE_URL}/signup`, {
-//     method: 'POST',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(name, email, password)
-//   })
-//     .then(checkStatus);
-// }
+    authorize(email, password) {
+        return fetch(`${this._url}/signin`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        })
+            .then(this._checkResponse)
+            .then((data) => {
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    return data;
+                }
+            })
+    }
 
-// export const authorize = (email, password) => {
-//   return fetch(`${BASE_URL}/signin`, {
-//     method: 'POST',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({ email, password})
-//   })
-//   .then(checkStatus)
-//     .then((data) => {
-//       if (data.token) {
-//         localStorage.setItem('token', data.token);
-//         return data;
-//       }
-//     })
-//   }
+    getUserInfo(token) {
+        return fetch(`${this._url}/users/me`, {
+            headers: {
+                'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .then(this._checkResponse)
+    }
 
-// export const tokenCheck = (token) => {
-//   return fetch(`${BASE_URL}/users/me`, {
-//     method: 'GET',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json',
-//       'Authorization': `Bearer ${token}`
-//     },
-//   })
-//     .then(checkStatus);
-// }
+    setUserInfo(data, token) {
+        return fetch(`${this._url}/users/me`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+            })
+        })
+            .then(this._checkResponse)
+    }
 
 
+    getMovie(token) {
+        return fetch(`${this._url}/movies`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .then(this._checkResponse)
+    }
+    
+    addMovie(data, token) {
+        return fetch(`${this._url}/movies`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                country: data.country,
+                director: data.director,
+                year: data.year,
+                duration: data.duration,
+                description: data.description,
+                image: `https://api.nomoreparties.co${data.image.url}`,
+                trailerLink: data.trailerLink,
+                thumbnail: `https://api.nomoreparties.co${data.image.formats.thumbnail.url}`,
+                movieId: data.id,
+                nameRU: data.nameRU,
+                nameEN: data.nameEN,
+            })
+        })
+            .then(this._checkResponse)
+    }
+
+    deleteMovie(movieId, token) {
+        return fetch(`${this._url}/movies/${movieId}`, {
+            method: 'DELETE',
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .then(this._checkResponse)
+    }
+
+    // changeLikeStatus(data, movieId, isLiked, token) {
+    //     if (isLiked) {
+    //       return this.addMovie(data, token);
+    //     } else if (!isLiked) {
+    //       return this.deleteMovie(movieId, token);
+    //     }
+    //   }
+    
+}
 
 
+const apiMain = new MainApi({
+    baseUrl: 'http://localhost:3000',
+    // baseUrl: 'api.movies-explorer-api.nomoredomainsicu.ru',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
 
-
-
-// ///////App.js
-// class Api {
-//     constructor(options) {
-//       this._url = options.baseUrl
-//     }
-  
-//     _checkResponse(res) {
-//       if (res.ok) {
-//         return res.json();
-//       }
-//       return Promise.reject(`Что-то пошло не так: ${res.status}`);
-//     }
-  
-//     getInfo(token) {
-//       return fetch(`${this._url}/users/me`, {
-//         headers: {
-//           //   authorization: this._authorization,
-//           //   'Content-Type': 'application/json'
-//           // }
-//           "Authorization": `Bearer ${token}`
-//         }
-//       })
-//         .then(this._checkResponse)
-//     }
-//     getCard(token) {
-//       return fetch(`${this._url}/cards`, {
-//         headers: {
-//           "Authorization": `Bearer ${token}`
-//         }
-//       })
-//         .then(this._checkResponse)
-//     }
-//     setUserInfo(data, token) {
-//       return fetch(`${this._url}/users/me`, {
-//         method: 'PATCH',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           "Authorization": `Bearer ${token}`
-//         },
-//         body: JSON.stringify({
-//           name: data.firstname,
-//           about: data.description,
-//         })
-//       })
-//         .then(this._checkResponse)
-//     }
-//     setUserAvatar(data, token) {
-//       return fetch(`${this._url}/users/me/avatar`, {
-//         method: 'PATCH',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           "Authorization": `Bearer ${token}`
-//         },
-//         body: JSON.stringify({
-//           avatar: data.avatar,
-//         })
-//       })
-//         .then(this._checkResponse)
-//     }
-//     addCard(data, token) {
-//       return fetch(`${this._url}/cards`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           "Authorization": `Bearer ${token}`
-//         },
-//         body: JSON.stringify({
-//           name: data.title,
-//           link: data.link,
-//         })
-//       })
-//         .then(this._checkResponse)
-//     }
-//     addLike(cardId, token) {
-//       return fetch(`${this._url}/cards/${cardId}/likes`, {
-//         method: 'PUT',
-//         headers: {
-//           // 'Content-Type': 'application/json',
-//           "Authorization": `Bearer ${token}`
-//         }
-//       })
-//         .then(this._checkResponse)
-//     }
-//     deleteLike(cardId, token) {
-//       return fetch(`${this._url}/cards/${cardId}/likes`, {
-//         method: 'DELETE',
-//         headers: {
-//           // 'Content-Type': 'application/json',
-//           "Authorization": `Bearer ${token}`
-//         }
-//       })
-//         .then(this._checkResponse)
-//     }
-//     changeLikeCardStatus(cardId, isLiked, token) {
-//       if (isLiked) {
-//         return this.addLike(cardId, token);
-//       } else if (!isLiked) {
-//         return this.deleteLike(cardId, token);
-//       }
-//     }
-  
-  
-//     deleteCard(cardId, token) {
-//       return fetch(`${this._url}/cards/${cardId}`, {
-//         method: 'DELETE',
-//         headers: {
-//           // 'Content-Type': 'application/json',
-//           "Authorization": `Bearer ${token}`
-//         }
-//       })
-//         .then(this._checkResponse)
-  
-//     }
-//   }
-  
-  
-//   const api = new Api({
-//     baseUrl: 'https://api.mesto.practicum15.nomoredomainsicu.ru',
-//   });
-  
-//   export default api
+export default apiMain
 

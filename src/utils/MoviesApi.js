@@ -1,40 +1,30 @@
-// class Api {
-//     constructor(options) {
-//       this._url = options.baseUrl
-//     }
-//     _checkResponse(res) {
-//       if (res.ok) {
-//         return res.json();
-//       }
-//       return Promise.reject(`Что-то пошло не так: ${res.status}`);
-//     }
-  
-//     // getInfo(token) {
-//     //   return fetch(`${this._url}/users/me`, {
-//     //     headers: {
-//     //       //   authorization: this._authorization,
-//     //       //   'Content-Type': 'application/json'
-//     //       // }
-//     //       "Authorization": `Bearer ${token}`
-//     //     }
-//     //   })
-//     //     .then(this._checkResponse)
-//     // }
-//     getFilm(token) {
-//       return fetch(`${this._url}/cards`, {
-//         headers: {
-//           "Authorization": `Bearer ${token}`
-//         }
-//       })
-//         .then(this._checkResponse)
-//     }
+export class MoviesApi {
+    constructor(options) {
+        this._url = options.baseUrl
+    }
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+    }
 
-//   }
-  
-  
-//   const api = new Api({
-//     baseUrl: 'https://api.nomoreparties.co/',
+    getMovie() {
+        return fetch(`${this._url}/beatfilm-movies`, {
+            // return fetch(`${this._url}`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            }
+        }).then(this._checkResponse)
+            .catch((error) => console.error(`Ошибка при загрузки фильмов ${error}`));
+    }
+}
 
-//   });
-  
-//   export default api
+
+const moviesApi = new MoviesApi({
+    baseUrl: 'https://api.nomoreparties.co',
+});
+
+export default moviesApi;
