@@ -6,91 +6,87 @@ import './Register.css';
 // import App from "../App/App";
 
 
-export default function Register({ onRegister, loggedIn }) {
+export default function Register({ onRegister, isWarning, setIsWarning }) {
     const [inputValues, setInputValues] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
     });
-
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
 
-
     const validateForm = () => {
-        // let errors = {};
-        // setIsValid(false)
+        const errors = {};
 
-        if (errors.name || errors.email || errors.password) {
-
-            console.log(errors);
-            console.log(errors.name);
-            console.log(errors.email);
-            console.log(errors.password);
-            setIsValid(false)
-        } else {
-            setIsValid(true)
+        if (inputValues.name.length == 0) {
+            errors.name = ''
+        } else if (inputValues.name.length < 2) {
+            errors.name = 'Имя должно содержать от 2 до 30 символов.'
         }
-        console.log(errors);
-        // setErrors(errors)
-        // // return errors
-        // return setIsValid(true)
-        // console.log(errors);
+
+        if (!inputValues.email) {
+            errors.email = '';
+        } else if (!/^\S+@\S+\.\S+$/.test(inputValues.email)) {
+            errors.email = 'Некорректный email';
+        }
+
+        if (inputValues.password.length == 0) {
+            errors.password = ''
+        } else if (inputValues.password.length < 5) {
+            errors.password = 'неправильный пароль'
+
+        }
+
+        setErrors(errors);
+        return errors;
+    };
+
+
+
+    function validateButton() {
+        if ((inputValues.name.length == 0) || (inputValues.name.length < 2)) {
+            setIsValid(true)
+            return
+        } else {
+            setIsValid(false)
+        }
+        if ((!inputValues.email) || (!/^\S+@\S+\.\S+$/.test(inputValues.email))) {
+            setIsValid(true)
+            return
+        } else {
+            setIsValid(false)
+        }
+        if ((inputValues.password.length == 0) || (inputValues.password.length < 5)) {
+            setIsValid(true)
+            return
+        } else {
+            setIsValid(false)
+        }
     }
+
+
 
     const inputOnChange = (event) => {
         const target = event.target;
-        const name = target.name;
         const value = target.value;
+        const name = target.name;
         setInputValues({ ...inputValues, [name]: value });
-        setErrors({ ...errors, [name]: target.validationMessage });
-        // validateForm({ ...inputValues, [name]: value });
-        validateForm({ ...errors, [name]: value });
 
-        // setIsValid({ ...isValid, [name]: value});
-        // setIsValid(target.closest("form").checkValidity());
-
-
-        // setErrors(errors);
-        // return errors;
-        // if (errors.email) {
-        //     setIsValid(false)
-        //     }
-        //     if (inputValues.password.length < 5) {
-        //         errors.password = 'неправильный пароль'
-        //     }
-        //     if (errors.email || errors.password) {
-        //         setIsValid(true)
-        //     } else {
-        //         setIsValid(false)
-        //     }
-        //     setErrors(errors);
-        //     return errors;
-        // };
     };
-    // function handleChangeInput(e) {
-    //     handleChange(e);
-    //     if (isSuccess.length > 0) {
-    //       setIsSuccess("");
-    //     }
-    //   }
+    useEffect(() => {
+        // if (){
+        // setIsValid(validateForm())
+        validateForm()
+        validateButton()
+    }, [inputValues]);
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         setIsValid(validateForm())
-
-        if (validateForm()) {
-            alert("Form submitted");
-        } else {
-            alert("Form has errors.");
-        }
-
-        onRegister(inputValues.name, inputValues.email, inputValues.password);
-        console.log("s");
-    }
-    // useEffect(() => {
-    //     validateForm()
-    // }, [inputValues]);
+        setErrors(validateForm());
+        setIsWarning(false)
+        onRegister(inputValues.name, inputValues.email, inputValues.password)
+    };
 
     return (
         <>
@@ -140,23 +136,11 @@ export default function Register({ onRegister, loggedIn }) {
                                     required
                                 />
                                 <span className={`register__error ${errors.password ? 'register__error_active' : ''}`}>{errors.password}</span>
-                                {/* <span className={`register__error ${errors.password ? 'register__error_active' : ''}`}>{errors.password}
-                                </span> */}
-
                             </div>
 
-                            {/* <span className={`register__errors ${errors ? 'register__errors_active' : ' '}`}>
-                                {isWarning}
-
-                            </span> */}
-                            {/* <span className="register__error">
-                            {!isWarning ? (
-                                    'ошибка' ) : ("нет ошибк")
-                                }
-                                </span>  */}
-
-
-                            <span className="profile__error"> </span>
+                            <span className={`login__errors ${!isWarning ? '' : 'login__errors_active'}`}>
+                                {"Пользователь с таким email уже существует." || "При регистрации пользователя произошла ошибка."}
+                            </span>
 
                             <button type="submit" aria-label="Зарегистрироваться"
 
@@ -165,19 +149,7 @@ export default function Register({ onRegister, loggedIn }) {
 
                             > Зарегистрироваться</button>
 
-                            {/* <button
-                                className={
-                                    isValid
-                                        ? `form__button-register`
-                                        : `form__button-register_disabled`
-                                }
-                                type="submit"
-                                name="submit"
-                                disabled={isValid}
-                            // disabled={isValid && isloading? 'true': !isValid && isloading? 'true':!isValid && !isloading?'false':""}
-                            > */}
-                            {/* Зарегистрироваться
-                            </button> */}
+
                         </form>
 
                         <p className="register__container-subtitle  register__subtitle">
@@ -252,3 +224,16 @@ export default function Register({ onRegister, loggedIn }) {
 //     )
 // }
 
+{/* <button
+                                className={
+                                    isValid
+                                        ? `form__button-register`
+                                        : `form__button-register_disabled`
+                                }
+                                type="submit"
+                                name="submit"
+                                disabled={isValid}
+                            // disabled={isValid && isloading? 'true': !isValid && isloading? 'true':!isValid && !isloading?'false':""}
+                            > */}
+{/* Зарегистрироваться
+                            </button> */}

@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import './SavedMovies.css';
 import HeaderAuth from '../HeaderAuth/HeaderAuth';
 import SearchForm from '../SearchForm/SearchForm';
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import MoviesCardListSave from '../MoviesCardListSave/MoviesCardListSave';
+
 import Footer from '../Footer/Footer';
 import { MoviesApi } from '../../utils/MoviesApi';
 

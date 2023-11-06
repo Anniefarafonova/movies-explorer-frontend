@@ -7,7 +7,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContextt/CurrentUs
 
 import MainApi from "../../utils/MainApi";
 
-export default function Profile({ signOut, handleUpdateUser }) {
+export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWarning }) {
     const currentUser = useContext(CurrentUserContext);
     const [name, setName] = useState(currentUser.name);
     const [email, setEmail] = useState(currentUser.email);
@@ -15,7 +15,7 @@ export default function Profile({ signOut, handleUpdateUser }) {
     const [errorName, setErrorName] = useState('');
     const [errorEmail, setErrorEmail] = useState('');
     const [isValid, setIsValid] = useState(true);
-    const [isWarning, setIsWarning] = useState(false);
+    // const [isWarning, setIsWarning] = useState(false);
 
 
     const validateForm = () => {
@@ -34,11 +34,12 @@ export default function Profile({ signOut, handleUpdateUser }) {
 
         if ((name.length < 2) || (!/^\S+@\S+\.\S+$/.test(email))) {
             setIsValid(true)
-            setErrors(true) 
+            setErrors(true)
             // setIsWarning("ssss")
-    
+
         } else {
             setIsValid(false)
+
             // setIsWarning("Неправильные почта или пароль." || "При регистрации пользователя произошла ошибка.")
         }
     };
@@ -61,11 +62,8 @@ export default function Profile({ signOut, handleUpdateUser }) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         validateForm()
-        // if ( setErrors(true) ) {
-        //     setIsWarning(true)
-        //     console.log("dd");
-        //     // return
-        // } 
+     
+        setIsWarning(false)
         handleUpdateUser({ name, email })
         console.log("handleSubmit");
     };
@@ -109,12 +107,15 @@ export default function Profile({ signOut, handleUpdateUser }) {
                                 </div>
                                 <span className={`register__error ${errorEmail ? 'register__error_active' : ''}`}>{errorEmail}
                                 </span>
+
+
                             </div>
 
-                            <span className={`profile__errors ${errors ? 'profile__errors_active' : ''}`}>
-                                {/* {isWarning} */}
-                                {"Пользователь с таким email уже существует.." || "При обновлении профиля произошла ошибка.."}
+
+                            <span className={`profile__errors ${!isWarning ? '' : 'profile__errors_active'}`}>
+                                {"При обновлении профиля произошла ошибка.." || "Пользователь с таким email уже существует.."}
                             </span>
+
                             <button type="submit" aria-label="Редактировать"
                                 className={`form__button-profile form__button-profile_edit ${isValid ? "form__button-profile_disabled" : ''}`}
                                 disabled={isValid}

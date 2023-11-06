@@ -76,6 +76,7 @@ function App() {
     }
   }
 
+  const [isWarning, setIsWarning] = useState(false);
 
   //функция авторизации
   function onLogin(email, password) {
@@ -98,32 +99,6 @@ function App() {
       })
   }
 
-  //функция регистации
-  // function onRegister(name, email, password) {
-  //   // setPreloader(true)
-  //   MainApi
-  //     .register(name, email, password)
-  //     .then((res) => {
-  //       setIsDone(true)
-  //       onLogin(email, password)
-  //       setLoggedIn(true)
-  //       console.log(res);
-  //       console.log('ok registr');
-  //       setEmail(email)
-  //       setName(name)
-  //       // navigate('/signin', { replace: true });
-  //     })
-  //     .catch((error) => {
-  //       console.error(`Ошибка при регистрации ${error}`)
-  //       console.log('ne ok registr');
-  //       console.log(name, email, password);
-  //       setIsDone(false)
-
-  //     })
-  //   // .finally(() => setPreloader(false))
-  // }
-
-  const [isWarning, setIsWarning] = useState(false);
 
   function onRegister(name, email, password) {
     setPreloader(true)
@@ -131,7 +106,7 @@ function App() {
       .register(name, email, password)
       .then((res) => {
         setEmail(email)
-        setName(name)zzz
+        setName(name)
         if (res) {
           setLoggedIn(false)
           MainApi.authorize(email, password)
@@ -141,23 +116,18 @@ function App() {
               navigate('/movies')
               setEmail(email)
               setName(name)
-
-
             })
             .catch((error) => {
               console.error(`Ошибка при регистрации ${error}`)
               console.log('ne ok registr');
-              console.log(name, email, password);
               setIsDone(false)
-             setIsWarning(true)
-             
-             setIsWarning(true)
+              setIsWarning(true)
             })
         }
       })
       .catch((error) => {
         console.error(`Ошибка при регистрации ${error}`)
-        
+        setIsWarning(true)
       })
 
   }
@@ -176,7 +146,11 @@ function App() {
       .then((data) => {
         setCurrentUser(data)
       })
-      .catch((error) => console.error(`Ошибка отправка формы с юзер данными (аватар) ${error}`));
+      .catch((error) => {
+        console.error(`Ошибка отправка формы с юзер данными (аватар) ${error}`)
+        setIsWarning(true)
+
+      })
   }
   //Функция удаления
   function handleDeleteSubmit(deleteId) {
@@ -227,8 +201,8 @@ function App() {
         {/* {isUpdateCheck ? <Preloader /> : */}
         <Routes>
           <Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />
-          <Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn}/>} />
-          <Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} />} />
+          <Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />
+          <Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />
           <Route path="/*" element={<Error />} />
 
 
@@ -254,7 +228,7 @@ function App() {
           />
 
 
-          <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} />} />
+          <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} />} />
 
         </Routes>
         {/* //  } */}

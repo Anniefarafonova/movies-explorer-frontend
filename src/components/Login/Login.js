@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import imageLogo from '../../images/logo.svg'
 import './Login.css';
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, isWarning, setIsWarning }) {
     const [inputValues, setInputValues] = useState({
         name: '',
         email: '',
@@ -11,55 +11,63 @@ export default function Login({ onLogin }) {
     });
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
-    // const [isWarning, setIsWarning] = useState("");
-    const [isWarning, setIsWarning] = useState(false);
 
     const validateForm = () => {
         const errors = {};
 
-        if (!/^\S+@\S+\.\S+$/.test(inputValues.email)) {
-            errors.email = 'Некорректный email';
-        }
-        if (inputValues.password.length < 5) {
+        if (!inputValues.email) {
+            errors.email = '';
+        } else
+            if (!/^\S+@\S+\.\S+$/.test(inputValues.email)) {
+                errors.email = 'Некорректный email';
+            }
+        if (inputValues.password.length == 0) {
+            errors.password = ''
+        } else if (inputValues.password.length < 5) {
             errors.password = 'неправильный пароль'
         }
+
         if (errors.email || errors.password) {
             setIsValid(true)
-        } else if (errors){
+        } else if (errors) {
             setIsValid(false)
         }
         setErrors(errors);
         return errors;
     };
 
+
+    function validateButton() {
+        
+        if ((!inputValues.email) || (!/^\S+@\S+\.\S+$/.test(inputValues.email))) {
+            setIsValid(true)
+            return
+        } else {
+            setIsValid(false)
+        }
+        if ((inputValues.password.length == 0) || (inputValues.password.length < 5)) {
+            setIsValid(true)
+            return
+        } else {
+            setIsValid(false)
+        }
+    }
     const inputOnChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
         setInputValues({ ...inputValues, [name]: value });
-        validateForm({ ...errors, [name]: value });
     };
     useEffect(() => {
         validateForm()
+        validateButton()
     }, [inputValues]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // setIsValid(validateForm())
-        // setErrors(validateForm());
-        if (validateForm()) {
-            alert("true");
-            setIsWarning(true)
-            onLogin(inputValues.email, inputValues.password)
-        } else {
-            alert("false");
-            setIsWarning(false)
-        }
-        // if (errors) {
-        //     setIsWarning(true)
-        // } else {
-        //     setIsWarning(false)
-        // }
+        setIsValid(validateForm())
+        setErrors(validateForm());
+        setIsWarning(false)
         onLogin(inputValues.email, inputValues.password)
     };
 
@@ -94,8 +102,7 @@ export default function Login({ onLogin }) {
                                 </span>
                             </div>
 
-                            <span className={`login__errors ${isWarning ? '' : 'login__errors_active'}`}>
-                                {/* {isWarning} */}
+                            <span className={`login__errors ${!isWarning ? '' : 'login__errors_active'}`}>
                                 {"Вы ввели неправильный логин или пароль" || "При авторизации произошла ошибка. Токен не передан или передан не в том формате" || " При авторизации произошла ошибка. Переданный токен некорректен."}
                             </span>
                             <button type="submit" aria-label="Зарегистрироваться"

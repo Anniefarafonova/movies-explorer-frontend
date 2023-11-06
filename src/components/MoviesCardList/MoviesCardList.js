@@ -17,7 +17,8 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
                         isScreenXl ?
                             (filterMovies.slice(filterMovies * CARDS_SCREEN_XL, page * CARDS_SCREEN_XL).map((movie) => (
                                 <MoviesCard
-                                    key={movie._id}
+                                    // key={movie._id}
+                                    key={movie.id || movie._id}
                                     movie={movie}
                                     savedMovies={savedMovies}
                                     handleAddSubmit={handleAddSubmit}
@@ -29,26 +30,32 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
                             isScreenLg ?
                                 (filterMovies.slice(filterMovies * CARDS_SCREEN_LG, page * CARDS_SCREEN_LG).map((movie) => (
                                     <MoviesCard
-                                        key={movie._id}
+                                        key={movie.id || movie._id}
                                         movie={movie}
                                         handleAddSubmit={handleAddSubmit}
+                                        handleDeleteSubmit={handleDeleteSubmit}
+                                        isSaved={isSaved}
                                         savedMovies={savedMovies} />
                                 )))
                                 :
                                 isScreenSm ?
                                     (filterMovies.slice(filterMovies * 5, page + 1 * 4).map((movie) => (
                                         <MoviesCard
-                                            key={movie._id}
+                                            key={movie.id || movie._id}
                                             movie={movie}
                                             handleAddSubmit={handleAddSubmit}
+                                            handleDeleteSubmit={handleDeleteSubmit}
+                                            isSaved={isSaved}
                                             savedMovies={savedMovies} />
                                     )))
                                     :
                                     (filterMovies.slice(0, 5)).map((movie) => (
                                         <MoviesCard
-                                            key={movie._id}
+                                            key={movie.id || movie._id}
                                             movie={movie}
                                             handleAddSubmit={handleAddSubmit}
+                                            handleDeleteSubmit={handleDeleteSubmit}
+                                            isSaved={isSaved}
                                             savedMovies={savedMovies} />
                                     ))
                     }
