@@ -24,6 +24,8 @@ class MainApi {
             .then(this._checkResponse)
     }
 
+
+    
     authorize(email, password) {
         console.log("authorize");
         return fetch(`${this._url}/signin`, {
