@@ -123,7 +123,7 @@ class MainApi {
 
 const apiMain = new MainApi({
     // baseUrl: 'http://localhost:3000',
-    baseUrl: 'api.movies-explorer-api.nomoredomainsicu.ru',
+    baseUrl: 'https://api.movies-explorer-api.nomoredomainsicu.ru/',
     // headers: {
     //     'Content-Type': 'application/json',
     // },
