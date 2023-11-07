@@ -25,6 +25,7 @@ class MainApi {
     }
 
     authorize(email, password) {
+        console.log("authorize");
         return fetch(`${this._url}/signin`, {
             method: 'POST',
             headers: {
@@ -109,10 +110,12 @@ class MainApi {
     }
 
     deleteMovie(movieId, token) {
+   
         return fetch(`${this._url}/movies/${movieId}`, {
             method: 'DELETE',
             headers: {
                 "Authorization": `Bearer ${token}`
+            
             }
         })
             .then(this._checkResponse)
@@ -124,6 +127,7 @@ class MainApi {
 const apiMain = new MainApi({
     // baseUrl: 'http://localhost:3000',
     baseUrl: 'https://api.movies-explorer-api.nomoredomainsicu.ru/',
+    
     // headers: {
     //     'Content-Type': 'application/json',
     // },
