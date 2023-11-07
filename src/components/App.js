@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes, Link, useNavigate } from "react-router-dom";
-import { CurrentUserContext } from '../../contexts/CurrentUserContextt/CurrentUserContext.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContextt/CurrentUserContext.js';
 import './App.css';
-import Main from "../Main/Main";
-import Movies from "../Movies/Movies";
-import Register from "../Register/Register";
-import Login from "../Login/Login";
-import Profile from "../Profile/Profile";
-import Error from "../Error/Error";
-import SavedMovies from '../SavedMovies/SavedMovies';
-import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
-import MainApi from "../../utils/MainApi";
+import Main from "./Main/Main.jsx";
+import Movies from "./Movies/Movies.js";
+import Register from "./Register/Register.js";
+import Login from "./Login/Login.js";
+import Profile from "./Profile/Profile.js";
+import Error from "./Error/Error.js";
+import SavedMovies from './SavedMovies/SavedMovies.js';
+import ProtectedRouteElement from "./ProtectedRoute/ProtectedRoute.js";
+import MainApi from "../utils/MainApi.js";
 
 function App() {
   const navigate = useNavigate();
