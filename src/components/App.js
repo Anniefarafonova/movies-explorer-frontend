@@ -12,6 +12,7 @@ import SavedMovies from './SavedMovies/SavedMovies.js';
 import ProtectedRouteElement from "./ProtectedRoute/ProtectedRoute.js";
 import MainApi from "../utils/MainApi.js";
 
+
 function App() {
   const navigate = useNavigate();
   // стейт попапов
