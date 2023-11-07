@@ -9,25 +9,29 @@ class MainApi {
         return Promise.reject(`Что-то пошло не так: ${res.status}`);
     }
 
-    register (name, email, password) {
-  return fetch(`${this._url}/signup`, {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({name, email, password})
-  })
+    register(name, email, password) {
+        return fetch(`${this._url}/signup`, {
+            method: 'POST',
+            headers: {
+                // 'Accept': 'application/json',
+                'Content-Type': 'application/json'
 
-        .then(this._checkResponse)
+                //   'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password })
+        })
+
+            .then(this._checkResponse)
     }
 
     authorize(email, password) {
         return fetch(`${this._url}/signin`, {
             method: 'POST',
             headers: {
-                'Accept': 'application/json',
+                // 'Accept': 'application/json',
                 'Content-Type': 'application/json'
+
+                // 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email, password })
         })
@@ -43,9 +47,11 @@ class MainApi {
     getUserInfo(token) {
         return fetch(`${this._url}/users/me`, {
             headers: {
-                'Accept': 'application/json',
-                    'Content-Type': 'application/json',
+                // 'Accept': 'application/json',
+                // 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${token}`
+
+                // "Authorization": `Bearer ${token}`
             }
         })
             .then(this._checkResponse)
@@ -57,6 +63,8 @@ class MainApi {
             headers: {
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${token}`
+
+           
             },
             body: JSON.stringify({
                 name: data.name,
@@ -75,7 +83,7 @@ class MainApi {
         })
             .then(this._checkResponse)
     }
-    
+
     addMovie(data, token) {
         return fetch(`${this._url}/movies`, {
             method: 'POST',
@@ -116,9 +124,9 @@ class MainApi {
 const apiMain = new MainApi({
     // baseUrl: 'http://localhost:3000',
     baseUrl: 'api.movies-explorer-api.nomoredomainsicu.ru',
-    headers: {
-        'Content-Type': 'application/json',
-    },
+    // headers: {
+    //     'Content-Type': 'application/json',
+    // },
 });
 
 export default apiMain
