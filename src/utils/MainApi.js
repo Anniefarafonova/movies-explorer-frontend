@@ -38,6 +38,7 @@ class MainApi {
             },
             body: JSON.stringify({ email, password })
         })
+        
             .then(this._checkResponse)
             .then((data) => {
                 if (data.token) {
