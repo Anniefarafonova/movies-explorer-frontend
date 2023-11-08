@@ -110,7 +110,7 @@ function App() {
         }
       })
       .catch((error) => {
-        console.error(`Ошибка при регистрации ${error}`)
+        console.error(`ООООшибка при регистрации ${error}`)
         setIsWarning(true)
       })
 
