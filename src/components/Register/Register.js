@@ -15,6 +15,15 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
 
+    const resetForm = useCallback(
+        (newValues = {}, newErrors = {}, newIsValid = false) => {
+            setInputValues(newValues);
+            setErrors(newErrors);
+            setIsValid(newIsValid);
+        },
+        [setInputValues, setErrors, setIsValid]
+    )
+
     const validateForm = () => {
         const errors = {};
 
@@ -87,6 +96,10 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
         setIsWarning(false)
         onRegister(inputValues.name, inputValues.email, inputValues.password)
     };
+
+    useEffect(() => {
+        resetForm({}, {}, false);
+    }, [resetForm]);
 
     return (
         <>
