@@ -16,17 +16,17 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
     const [isValid, setIsValid] = useState(false);
 
     const resetForm = useCallback(
-        (newValues = {}, newErrors = {}, newIsValid = false) => {
-            setInputValues(newValues);
+        (newErrors = {}, newIsValid = false) => {
+
             setErrors(newErrors);
             setIsValid(newIsValid);
         },
-        [setInputValues, setErrors, setIsValid]
+        [setErrors, setIsValid]
     )
 
     const validateForm = () => {
         const errors = {};
-
+        setIsValid(true)
         if (inputValues.name.length == 0) {
             errors.name = ''
         } else if (inputValues.name.length < 2) {
@@ -51,8 +51,8 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
     };
 
 
-
     function validateButton() {
+
         if ((inputValues.name.length == 0) || (inputValues.name.length < 2)) {
             setIsValid(true)
             return
@@ -98,7 +98,7 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
     };
 
     useEffect(() => {
-        resetForm({}, {}, false);
+        resetForm({}, false);
     }, [resetForm]);
 
     return (
@@ -152,7 +152,7 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
                             </div>
 
                             <span className={`login__errors ${!isWarning ? '' : 'login__errors_active'}`}>
-                                {"Пользователь с таким email уже существует." || "При регистрации пользователя произошла ошибка."}
+                                {"При регистрации пользователя произошла ошибка." || "Пользователь с таким email уже существует."}
                             </span>
 
                             <button type="submit" aria-label="Зарегистрироваться"
