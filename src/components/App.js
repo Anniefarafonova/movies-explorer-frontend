@@ -152,14 +152,27 @@ function App() {
 
   //функция добавления карточки
   function handleAddSubmit(data) {
-    MainApi
-      .addMovie(data, localStorage.token) //делаем запрос на сервер
-      .then(res => {
-        setSavedMovies([res, ...savedMovies])
-        console.log("добавления карточки успешно");
-      })
-      .catch((error) => console.error(`Ошибка лайка ${error}`));
+    const add = savedMovies.some(element => data.id === element.movieId)
+    const seachMovie = savedMovies.find((movie) => {
+      return movie.movieId === data.id
+    })
+
+    if (add) {
+      handleDeleteSubmit(seachMovie._id);
+
+    } else {
+      MainApi
+        .addMovie(data, localStorage.token)
+        .then(res => {
+          setSavedMovies([res, ...savedMovies])
+          console.log("добавления карточки успешно");
+        })
+        .catch((error) => console.error(`Ошибка лайка ${error}`));
+    }
   }
+
+
+
   //функция Api
   useEffect(() => {
     loggedIn &&

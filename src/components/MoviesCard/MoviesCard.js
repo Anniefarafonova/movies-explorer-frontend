@@ -18,7 +18,7 @@ export default function MoviesCard({ movie, filterMovies, savedMovies, setSavedM
             setIsLike(false)
             handleAddSubmit(movie)
         } else {
-            // setIsLike(true)
+            setIsLike(true)
             handleAddSubmit(movie)
         }
         setIsLike(!isLike);
