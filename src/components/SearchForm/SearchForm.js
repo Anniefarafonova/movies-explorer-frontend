@@ -4,9 +4,7 @@ import './SearchForm.css';
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 export default function SearchForm({ searchFilms, allMovies, setAllMovies, isCheck, setIsCheck, setIsSearch, isSearch, filtredMovie, setFilterMovies, filterMovies, savedMovies, changeCheck }) {
-
   const [errors, setErrors] = useState("");
-
 
   function handleSubmitSearch(evt) {
     setIsSearch(evt.target.value)
