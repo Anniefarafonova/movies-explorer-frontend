@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import './Profile.css';
 import HeaderAuth from '../HeaderAuth/HeaderAuth';
-// import * as MainApi from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContextt/CurrentUserContext.js"
 
 import MainApi from "../../utils/MainApi";
@@ -16,15 +15,6 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
     const [errorName, setErrorName] = useState('');
     const [errorEmail, setErrorEmail] = useState('');
     const [isValid, setIsValid] = useState(false);
-
-    // const [lastName, setLastName] = useState(currentUser.name);
-
-    // const [lastEmail, setLastEmail] = useState(currentUser.email);
-
-    // console.log(currentUser.name);
-    // console.log(name);
-
-
 
     const validateForm = () => {
         if (name.length < 2) {
@@ -42,7 +32,6 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
             setIsSuccess(true)
         }
 
-
         if ((name.length < 2) || (!/^\S+@\S+\.\S+$/.test(email)) || (name === currentUser.name) && (email === currentUser.email)) {
             setIsValid(true)
             setErrors(true)
@@ -52,7 +41,6 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
             setIsSuccess(true)
         }
     };
-
     function handleNameChange(evt) {
         const target = evt.target;
         const value = target.value;
@@ -61,7 +49,6 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
         setIsSuccess("");
 
     }
-
     function handleEmailChange(evt) {
         const target = evt.target;
         const value = target.value;
@@ -71,16 +58,13 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
 
     }
 
-
     const handleSubmit = (evt) => {
         evt.preventDefault();
         validateForm()
         setIsWarning(false)
         handleUpdateUser({ name, email })
         console.log("handleSubmit");
-
     };
-
 
     useEffect(() => {
         validateForm()
@@ -138,26 +122,16 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
                                 </div>
                                 <span className={`register__error ${errorEmail ? 'register__error_active' : ''}`}>{errorEmail}
                                 </span>
-
-
                             </div>
 
-                            {/* {isValid ? ( */}
                             < span className={`profile__errors ${!isWarning ? '' : 'profile__errors_active'}`}>
                                 {"При обновлении профиля произошла ошибка.." || "Пользователь с таким email уже существует.."}
                             </span>
-                            {/* ) */}
-                            {/* :
-                                ( */}
                             < span className=
-                                // {`profile__errors ${!isSuccess ? '' : 'profile__errors_active'}`}
                                 " profile__errors profile__errors_active profile__errors_success"
                             >
-                                {/* {"Профиль обновился!"} */}
                                 {isSuccess}
                             </span>
-                            {/* )
-                            } */}
                             <button type="submit" aria-label="Редактировать"
                                 className={`form__button-profile form__button-profile_edit ${isValid ? "form__button-profile_disabled" : ''}`}
                                 disabled={isValid} onClick={() => onClick()}
