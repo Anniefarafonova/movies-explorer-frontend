@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import imageLogo from '../../images/logo.svg'
 import './Login.css';
 
-export default function Login({ onLogin, isWarning, setIsWarning }) {
+export default function Login({ onLogin, isWarning, setIsWarning}) {
     const [inputValues, setInputValues] = useState({
         name: '',
         email: '',
@@ -17,8 +17,7 @@ export default function Login({ onLogin, isWarning, setIsWarning }) {
 
         if (!inputValues.email) {
             errors.email = '';
-        } else
-            if (!/^\S+@\S+\.\S+$/.test(inputValues.email)) {
+        } else if (!/^\S+@\S+\.\S+$/.test(inputValues.email)) {
                 errors.email = 'Некорректный email';
             }
         if (inputValues.password.length == 0) {
@@ -38,7 +37,7 @@ export default function Login({ onLogin, isWarning, setIsWarning }) {
 
 
     function validateButton() {
-        
+
         if ((!inputValues.email) || (!/^\S+@\S+\.\S+$/.test(inputValues.email))) {
             setIsValid(true)
             return

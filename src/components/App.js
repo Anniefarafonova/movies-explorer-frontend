@@ -11,6 +11,7 @@ import Error from "./Error/Error.js";
 import SavedMovies from './SavedMovies/SavedMovies.js';
 import ProtectedRouteElement from "./ProtectedRoute/ProtectedRoute.js";
 import MainApi from "../utils/MainApi.js";
+import Preloader from './Preloader/Preloader.js';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 
   const [isUpdateCheck, setIsUpdateCheck] = useState(true)
   const [isWarning, setIsWarning] = useState(false);
+  const [isSuccess, setIsSuccess] = useState("");
 
 
   useEffect(() => {
@@ -69,6 +71,7 @@ function App() {
         localStorage.setItem('token', res.token)
         setLoggedIn(true)
         navigate('/movies', { replace: true });
+        // return true
         console.log('ok auth');
         setEmail(email)
         // onRegister(name, email)
@@ -78,7 +81,6 @@ function App() {
         console.error(`Ошибка при авторизации ${error}`)
         console.log('ne ok auth');
         setIsDone(false)
-
         setIsWarning(true)
       })
   }
@@ -129,10 +131,13 @@ function App() {
       .setUserInfo(data, localStorage.token)
       .then((data) => {
         setCurrentUser(data)
+        setIsSuccess("Профиль успешно обновлен.");
+        setIsWarning(false)
       })
       .catch((error) => {
         console.error(`Ошибка отправка формы с юзер данными (аватар) ${error}`)
         setIsWarning(true)
+        setIsSuccess("")
 
       })
   }
@@ -194,11 +199,20 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        {/* {isUpdateCheck ? <Preloader /> : */}
+
         <Routes>
           <Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />
-          <Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />
-          <Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />
+
+          {!loggedIn ?
+            (<Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
+            :
+            (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+          }
+          {!loggedIn ?
+            (<Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
+            :
+            (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+          }
           <Route path="/*" element={<Error />} />
 
           <Route path="/movies" element={<ProtectedRouteElement
@@ -223,10 +237,10 @@ function App() {
           />
 
 
-          <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} />} />
+          <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} isSuccess={isSuccess} setIsSuccess={setIsSuccess} />} />
 
         </Routes>
-        {/* //  } */}
+
       </div >
     </CurrentUserContext.Provider>
   )

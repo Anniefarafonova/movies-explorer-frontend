@@ -80,8 +80,10 @@
 
 .element__image {
     max-width: 270px;
+    height: 151px;
     min-height: 151px;
     background-color: blueviolet;
+    width: 100%;
 }
 
 @media screen and (max-width: 1130px) {

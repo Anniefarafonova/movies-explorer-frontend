@@ -15,18 +15,18 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
 
-    const resetForm = useCallback(
-        (newErrors = {}, newIsValid = false) => {
+    // const resetForm = useCallback(
+    //     (newErrors = {}, newIsValid = false) => {
 
-            setErrors(newErrors);
-            setIsValid(newIsValid);
-        },
-        [setErrors, setIsValid]
-    )
+    //         setErrors(newErrors);
+    //         setIsValid(newIsValid);
+    //     },
+    //     [setErrors, setIsValid]
+    // )
 
     const validateForm = () => {
         const errors = {};
-        setIsValid(true)
+     
         if (inputValues.name.length == 0) {
             errors.name = ''
         } else if (inputValues.name.length < 2) {
@@ -83,8 +83,6 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
 
     };
     useEffect(() => {
-        // if (){
-        // setIsValid(validateForm())
         validateForm()
         validateButton()
     }, [inputValues]);
@@ -97,9 +95,9 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
         onRegister(inputValues.name, inputValues.email, inputValues.password)
     };
 
-    useEffect(() => {
-        resetForm({}, false);
-    }, [resetForm]);
+    // useEffect(() => {
+    //     resetForm({}, false);
+    // }, [resetForm]);
 
     return (
         <>

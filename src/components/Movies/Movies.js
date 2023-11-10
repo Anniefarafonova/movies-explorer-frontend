@@ -15,7 +15,7 @@ export default function Movies({
   const [isSearch, setIsSearch] = useState("");
   const [isCheck, setIsCheck] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
-  const [firstSearch, setFirstSearch] = useState(true)
+  const [firstSearch, setFirstSearch] = useState(false)
   const [loadingError, setLoadingError] = useState(false)
 
   const filtredMovie = ((search, isCheck, allmovies) => {
@@ -24,15 +24,18 @@ export default function Movies({
     localStorage.setItem('check', JSON.stringify(isCheck))
     localStorage.setItem('allmovies', JSON.stringify(allmovies))
     setFilterMovies(allmovies.filter((movie) => {
-
       const searchName = movie.nameRU.toLowerCase().includes(search.toLowerCase()) ||
         movie.nameEN.toLowerCase().includes(search.toLowerCase());
       return isCheck ? (searchName && movie.duration <= 40) : searchName
     }))
   })
 
+
+ 
   // функция для отрисовки фильмов
   function searchFilms(search) {
+
+   
     if (allMovies.length === 0) {
       setIsLoading(true)
       MoviesApi.getMovie()//запрос к API фильмов
@@ -40,7 +43,7 @@ export default function Movies({
           setAllMovies(res);
           console.log("запрос к API фильмов +");
           setIsCheck(false)
-          setFirstSearch(false)
+          setFirstSearch(true)
           setLoadingError(false)
           filtredMovie(search, isCheck, res)
         })
@@ -49,6 +52,7 @@ export default function Movies({
           console.error(`Ошибка при поиске фильмов ${error}`);
           setLoadingError(true)
         })
+        .finally(() => setIsLoading(false))
     }
     filtredMovie(isSearch, isCheck, allMovies)
   };
@@ -59,7 +63,7 @@ export default function Movies({
       const allmovies = JSON.parse(localStorage.getItem("allmovies"));
       const search = JSON.parse(localStorage.getItem("search"));
       const isCheck = JSON.parse(localStorage.getItem("check"));
-      setFirstSearch(false)
+      // setFirstSearch(false)
       setLoadingError(false)
       setIsSearch(search)
       setIsCheck(isCheck)
@@ -90,11 +94,18 @@ export default function Movies({
       <main className="main">
         <SearchForm
           searchFilms={searchFilms} allMovies={allMovies} setAllMovies={setAllMovies} filterMovies={filterMovies} setFilterMovies={setFilterMovies} isCheck={isCheck} isSearch={isSearch}
-          changeCheck={changeCheck}
-          setIsSearch={setIsSearch} filtredMovie={filtredMovie} setIsCheck={setIsCheck} savedMovies={savedMovies} isLoading={isLoading} isSaved={false}
+          changeCheck={changeCheck} firstSearch={firstSearch} setFirstSearch={setFirstSearch}
+          setIsSearch={setIsSearch} filtredMovie={filtredMovie} setIsCheck={setIsCheck} savedMovies={savedMovies} isLoading={isLoading} isSaved={false}  
         />
         <MoviesCardList
-          allMovies={allMovies} isSaved={false} filterMovies={filterMovies} savedMovies={savedMovies} handleAddSubmit={handleAddSubmit} loadingError={loadingError}
+          allMovies={allMovies} 
+          isSaved={false} 
+          filterMovies={filterMovies}
+           savedMovies={savedMovies} 
+           handleAddSubmit={handleAddSubmit} 
+           loadingError={loadingError}
+           firstSearch={firstSearch}
+          //  moviesList={moviesList}
         />
       </main>
       <Footer />

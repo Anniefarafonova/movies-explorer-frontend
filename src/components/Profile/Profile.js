@@ -7,15 +7,23 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContextt/CurrentUs
 
 import MainApi from "../../utils/MainApi";
 
-export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWarning }) {
+export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWarning, setIsSuccess, isSuccess }) {
     const currentUser = useContext(CurrentUserContext);
     const [name, setName] = useState(currentUser.name);
     const [email, setEmail] = useState(currentUser.email);
+    const [values, setValues] = useState({})
     const [errors, setErrors] = useState(false);
     const [errorName, setErrorName] = useState('');
     const [errorEmail, setErrorEmail] = useState('');
-    const [isValid, setIsValid] = useState(true);
-    // const [isWarning, setIsWarning] = useState(false);
+    const [isValid, setIsValid] = useState(false);
+
+    // const [lastName, setLastName] = useState(currentUser.name);
+
+    // const [lastEmail, setLastEmail] = useState(currentUser.email);
+
+    // console.log(currentUser.name);
+    // console.log(name);
+
 
 
     const validateForm = () => {
@@ -23,6 +31,7 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
             setErrorName('Имя должно содержать от 2 до 30 символов.')
         } else {
             setErrorName('')
+            setIsSuccess(true)
         }
 
         if (!/^\S+@\S+\.\S+$/.test(email)) {
@@ -30,17 +39,17 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
             setErrors(true)
         } else {
             setErrorEmail('')
+            setIsSuccess(true)
         }
 
-        if ((name.length < 2) || (!/^\S+@\S+\.\S+$/.test(email))) {
+
+        if ((name.length < 2) || (!/^\S+@\S+\.\S+$/.test(email)) || (name === currentUser.name) && (email === currentUser.email)) {
             setIsValid(true)
             setErrors(true)
-            // setIsWarning("ssss")
-
+            return
         } else {
             setIsValid(false)
-
-            // setIsWarning("Неправильные почта или пароль." || "При регистрации пользователя произошла ошибка.")
+            setIsSuccess(true)
         }
     };
 
@@ -49,6 +58,8 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
         const value = target.value;
         setName(value);
         validateForm()
+        setIsSuccess("");
+
     }
 
     function handleEmailChange(evt) {
@@ -56,16 +67,18 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
         const value = target.value;
         setEmail(value);
         validateForm()
+        setIsSuccess("");
+
     }
 
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         validateForm()
-     
         setIsWarning(false)
         handleUpdateUser({ name, email })
         console.log("handleSubmit");
+
     };
 
 
@@ -73,6 +86,24 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
         validateForm()
     }, [name, email]);
 
+
+    const [showMarketing, setShowMarketing] = useState(false);
+    const [showLanding, setShowLanding] = useState(true)
+
+
+    React.useEffect(() => {
+        if (currentUser.name === values.name && currentUser.email === values.email) {
+            setIsValid(true);
+        } else { setIsValid(!isValid); }
+    }, [currentUser, values]);
+
+
+
+    const onClick = () => {
+        setShowMarketing(!showMarketing);
+        console.log("dd");
+        setShowLanding(!showLanding);
+    }
 
     return (
         <>
@@ -89,7 +120,7 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
                                         <input id="name" type="text" placeholder="" name="name"
                                             className="form__container-item form__container-item_profile form__container-item_profile_name"
 
-                                            value={name || ''}
+                                            value={name}
                                             onChange={handleNameChange}
                                             required />
                                     </div>
@@ -100,7 +131,7 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
                                     <label className="form__container-span form__container-span_profile">E-mail</label>
                                     <div className="form__container-names" >
                                         <input id="email" type="email" placeholder=" " name="email"
-                                            className="form__container-item form__container-item_profile form__container-item_profile_email" value={email || ''}
+                                            className="form__container-item form__container-item_profile form__container-item_profile_email" value={email}
                                             onChange={handleEmailChange}
                                             required />
                                     </div>
@@ -111,14 +142,25 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
 
                             </div>
 
-
-                            <span className={`profile__errors ${!isWarning ? '' : 'profile__errors_active'}`}>
+                            {/* {isValid ? ( */}
+                            < span className={`profile__errors ${!isWarning ? '' : 'profile__errors_active'}`}>
                                 {"При обновлении профиля произошла ошибка.." || "Пользователь с таким email уже существует.."}
                             </span>
-
+                            {/* ) */}
+                            {/* :
+                                ( */}
+                            < span className=
+                                // {`profile__errors ${!isSuccess ? '' : 'profile__errors_active'}`}
+                                " profile__errors profile__errors_active profile__errors_success"
+                            >
+                                {/* {"Профиль обновился!"} */}
+                                {isSuccess}
+                            </span>
+                            {/* )
+                            } */}
                             <button type="submit" aria-label="Редактировать"
                                 className={`form__button-profile form__button-profile_edit ${isValid ? "form__button-profile_disabled" : ''}`}
-                                disabled={isValid}
+                                disabled={isValid} onClick={() => onClick()}
 
                             >Редактировать</button>
                             <Link to="/signin" className="profile__button-link" rel='' onClick={signOut} > Выйти из аккаунта</Link>
@@ -127,7 +169,7 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
 
                     </div>
                 </section>
-            </main>
+            </main >
         </>
     )
 }

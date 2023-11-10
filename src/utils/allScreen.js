@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
+
+
+
 // Разрешения экрана
-const SCREEN_SM = 320;
+export const SCREEN_SM = 320;
 //  const SCREEN_MD = 480;
-const SCREEN_LG = 768;
-const SCREEN_XL = 1280;
+export const SCREEN_LG = 668;
+export const SCREEN_XL = 1120;
 
 //  отображаемые карточки для 1280
 export const CARDS_SCREEN_XL = 16;
