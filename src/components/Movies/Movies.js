@@ -31,11 +31,8 @@ export default function Movies({
   })
 
 
- 
   // функция для отрисовки фильмов
   function searchFilms(search) {
-
-   
     if (allMovies.length === 0) {
       setIsLoading(true)
       MoviesApi.getMovie()//запрос к API фильмов
@@ -105,7 +102,6 @@ export default function Movies({
            handleAddSubmit={handleAddSubmit} 
            loadingError={loadingError}
            firstSearch={firstSearch}
-          //  moviesList={moviesList}
         />
       </main>
       <Footer />
