@@ -14,16 +14,6 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
     });
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
-
-    // const resetForm = useCallback(
-    //     (newErrors = {}, newIsValid = false) => {
-
-    //         setErrors(newErrors);
-    //         setIsValid(newIsValid);
-    //     },
-    //     [setErrors, setIsValid]
-    // )
-
     const validateForm = () => {
         const errors = {};
      
@@ -49,8 +39,6 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
         setErrors(errors);
         return errors;
     };
-
-
     function validateButton() {
 
         if ((inputValues.name.length == 0) || (inputValues.name.length < 2)) {
@@ -72,9 +60,6 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
             setIsValid(false)
         }
     }
-
-
-
     const inputOnChange = (event) => {
         const target = event.target;
         const value = target.value;
@@ -94,10 +79,6 @@ export default function Register({ onRegister, isWarning, setIsWarning }) {
         setIsWarning(false)
         onRegister(inputValues.name, inputValues.email, inputValues.password)
     };
-
-    // useEffect(() => {
-    //     resetForm({}, false);
-    // }, [resetForm]);
 
     return (
         <>
