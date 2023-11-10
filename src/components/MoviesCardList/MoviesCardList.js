@@ -9,7 +9,6 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
     const { isScreenSm, isScreenLg, isScreenXl, width } = useResize();
     const [page, setPage] = useState(1);
 
-
     const changeMovies = useCallback(() => {
         if (width >= SCREEN_XL) {
             setPage(CARDS_SCREEN_XL);
@@ -49,9 +48,6 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
 
     };
 
-
-
-
     return (
         <section className="elements">
             {isLoading ? <Preloader /> :
@@ -60,7 +56,6 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
                         {
                             (filterMovies.slice(0, page).map((movie) => (
                                 <MoviesCard
-                                    // key={movie._id}
                                     key={movie.id || movie._id}
                                     movie={movie}
                                     savedMovies={savedMovies}
@@ -81,7 +76,6 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
             }
 
             < div className="elements__container">
-
                 {
                     page < filterMovies.length && (
 
@@ -90,7 +84,6 @@ export default function MoviesCardList({ isSaved, filterMovies, handleAddSubmit,
                         >Ещё </button>
 
                     )
-
                 }
             </div>
         </section >
