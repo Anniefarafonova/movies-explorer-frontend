@@ -71,10 +71,8 @@ function App() {
         localStorage.setItem('token', res.token)
         setLoggedIn(true)
         navigate('/movies', { replace: true });
-        // return true
         console.log('ok auth');
         setEmail(email)
-        // onRegister(name, email)
         setName(name)
       })
       .catch((error) => {
@@ -84,7 +82,6 @@ function App() {
         setIsWarning(true)
       })
   }
-
 
   function onRegister(name, email, password) {
     setPreloader(true)
