@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 
 
-
 // Разрешения экрана
 export const SCREEN_SM = 320;
 //  const SCREEN_MD = 480;
