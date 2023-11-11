@@ -15,8 +15,10 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
     const [errorName, setErrorName] = useState('');
     const [errorEmail, setErrorEmail] = useState('');
     const [isValid, setIsValid] = useState(false);
-
+    console.log(name);
+    console.log(email);
     const validateForm = () => {
+        console.log(name);
         if (name.length < 2) {
             setErrorName('Имя должно содержать от 2 до 30 символов.')
         } else {
@@ -137,7 +139,7 @@ export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWar
                                 disabled={isValid} onClick={() => onClick()}
 
                             >Редактировать</button>
-                            <Link to="/signin" className="profile__button-link" rel='' onClick={signOut} > Выйти из аккаунта</Link>
+                            <Link to="/" className="profile__button-link" rel='' onClick={signOut} > Выйти из аккаунта</Link>
 
                         </form>
 

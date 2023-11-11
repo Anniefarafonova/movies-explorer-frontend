@@ -3,16 +3,22 @@
     flex-direction: column;
     max-width: 270px;
     position: relative;
-    max-height: 230px;
+    max-height: 248px;
+    min-height: 200px;
 }
+
 @media screen and (max-width: 1260px) {
-    .element{
+    .element {
         max-width: 860px;
     }
 }
+
 @media screen and (max-width: 1108px) {
     .element {
-        max-width: 339px;
+        /* max-width: 339px;
+        max-height: 269px; */
+
+        max-width: 260px;
         max-height: 269px;
     }
 }
@@ -23,16 +29,19 @@
         min-height: 168px;
     }
 }
-@media screen and (max-width: 758px) {
+
+@media screen and (max-width: 1109px) {
     .element {
         max-width: 300px;
     }
 }
+
 @media screen and (max-width: 699px) {
     .element {
         max-width: 240px;
     }
 }
+
 @media screen and (max-width: 630px) {
     .element {
         max-width: 339px;
@@ -48,12 +57,14 @@
     margin: 0 auto 60px;
     max-width: 1170px;
 }
-@media screen and (max-width: 1260px) {
+
+@media screen and (max-width: 1280px) {
     .elements__list-template {
-        max-width: 970px;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        max-width: 1050px;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
 }
+
 @media screen and (max-width: 868px) {
     .elements__list-template {
         gap: 30px;
@@ -62,7 +73,7 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1109px) {
     .elements__list-template {
         gap: 15px;
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -86,17 +97,19 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1109px) {
     .element__image {
         max-width: 339px;
         min-height: 190px;
     }
 }
+
 @media screen and (max-width: 758px) {
     .element__image {
         max-width: 300px;
     }
 }
+
 @media screen and (max-width: 670px) {
     .element__image {
         max-width: 300px;
@@ -118,6 +131,7 @@
     min-width: 20px;
     height: 10px;
 }
+
 .element__list-like_active {
     background-image: url(../../images/like_active.svg);
     background-repeat: no-repeat;
@@ -139,7 +153,7 @@
     opacity: 50%;
 }
 
-.element__list-dislike{
+.element__list-dislike {
     background-image: url(../../images/dislike.svg);
     background-repeat: no-repeat;
     background-color: transparent;
@@ -150,8 +164,9 @@
     margin: 0;
     min-width: 24px;
     height: 24px;
-   
+
 }
+
 .element__list {
     text-decoration: none;
     padding: 0;
@@ -161,7 +176,7 @@
 .element__list-self {
     display: flex;
     justify-content: space-between;
-    margin: 14px 0 20px;
+    margin: 10px 0 0px;
     max-height: 32px;
     box-sizing: border-box;
     max-width: 270px;
@@ -188,12 +203,14 @@
     line-height: 16px;
     color: #000000;
     max-width: 226px;
-    max-height: 32px;
+    min-height: 32px;
     margin: 0;
 }
-.element__list-item{
+
+.element__list-item {
     list-style: none;
 }
+
 .element__list-time {
     border-top: 1px solid rgba(232, 232, 232, 1);
     margin: 0;

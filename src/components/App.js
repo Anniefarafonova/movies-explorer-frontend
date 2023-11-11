@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Routes, Link, useNavigate } from "react-router-dom";
+import { Route, Routes, Link, useNavigate, Navigate } from "react-router-dom";
 import { CurrentUserContext } from '../contexts/CurrentUserContextt/CurrentUserContext.js';
 import './App.css';
 import Main from "./Main/Main.jsx";
@@ -9,9 +9,10 @@ import Login from "./Login/Login.js";
 import Profile from "./Profile/Profile.js";
 import Error from "./Error/Error.js";
 import SavedMovies from './SavedMovies/SavedMovies.js';
-import ProtectedRouteElement from "./ProtectedRoute/ProtectedRoute.js";
 import MainApi from "../utils/MainApi.js";
 import Preloader from './Preloader/Preloader.js';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute.js';
+
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
         console.log('ok auth');
         setEmail(email)
         setName(name)
+
       })
       .catch((error) => {
         console.error(`Ошибка при авторизации ${error}`)
@@ -90,6 +92,8 @@ function App() {
       .then((res) => {
         setEmail(email)
         setName(name)
+        console.log(email);
+        console.log(name);
         if (res) {
           setLoggedIn(false)
           MainApi.authorize(email, password)
@@ -109,17 +113,17 @@ function App() {
         }
       })
       .catch((error) => {
-        console.error(`ООООшибка при регистрации ${error}`)
+        console.error(`Ошибка при регистрации ${error}`)
         setIsWarning(true)
       })
 
   }
 
   function signOut() {
-    localStorage.removeItem('token');
-    setLoggedIn(false);
-    navigate("/signin");
-    localStorage.clear();
+    // localStorage.removeItem('token');
+    localStorage.clear()
+    setLoggedIn(false)
+    navigate('/')
   }
 
   //функция отображения данных Edit(описание)
@@ -130,6 +134,7 @@ function App() {
         setCurrentUser(data)
         setIsSuccess("Профиль успешно обновлен.");
         setIsWarning(false)
+        setLoggedIn(true);
       })
       .catch((error) => {
         console.error(`Ошибка отправка формы с юзер данными (аватар) ${error}`)
@@ -140,7 +145,7 @@ function App() {
   }
   //Функция удаления
   function handleDeleteSubmit(deleteId) {
-    // evt.preventDefault()
+
     MainApi
       .deleteMovie(deleteId, localStorage.token)
       .then(() => {
@@ -175,31 +180,35 @@ function App() {
 
 
 
-  //функция Api
+
   useEffect(() => {
-    loggedIn &&
-      // if (localStorage.token) {
+    if (localStorage.token) {
       Promise.all([MainApi.getUserInfo(localStorage.token), MainApi.getMovie(localStorage.token)])
-        .then(([dataUser, dataMovies]) => {
-          setCurrentUser(dataUser)
-          setSavedMovies(dataMovies);
-          setLoggedIn(true);
-          setIsUpdateCheck(false)
+        .then(([userData, dataMovies]) => {
+          setSavedMovies(dataMovies)
+          setCurrentUser(userData)
+          setLoggedIn(true)
+          // setIsCheckToken(false)
         })
-        .catch((error) => {
-          console.error(`Ошибка при начальных данный страницы ${error}`);
-          setIsUpdateCheck(false)
+        .catch((err) => {
+          console.error(`Ошибка при загрузке начальных данных ${err}`)
+          // setIsCheckToken(false)
           localStorage.clear()
         })
-  }, [loggedIn]);
+    } else {
+      setLoggedIn(false)
+      // setIsCheckToken(false)
+      localStorage.clear()
+    }
+  }, [loggedIn])
+
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-
         <Routes>
-          <Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />
-
+        <Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />
           {!loggedIn ?
             (<Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
             :
@@ -209,35 +218,33 @@ function App() {
             (<Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
             :
             (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
-          }
-          <Route path="/*" element={<Error />} />
-
-          <Route path="/movies" element={<ProtectedRouteElement
+          } 
+       {loggedIn ? (<Route path="/movies" element={<ProtectedRoute
             element={Movies}
             loggedIn={loggedIn}
             handleAddSubmit={handleAddSubmit}
             handleDeleteSubmit={handleDeleteSubmit}
             savedMovies={savedMovies}
             setSavedMovies={setSavedMovies}
-
-          />}
-          />
-
-          <Route path="/saved-movies" element={<ProtectedRouteElement
+          />} />) :  (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+}
+       {loggedIn ? (<Route path="/saved-movies" element={<ProtectedRoute
             element={SavedMovies}
             loggedIn={loggedIn}
             handleAddSubmit={handleAddSubmit}
             handleDeleteSubmit={handleDeleteSubmit}
             savedMovies={savedMovies}
-            setSavedMovies={setSavedMovies}
-          />}
-          />
-
-
-          <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} isSuccess={isSuccess} setIsSuccess={setIsSuccess} />} />
-
+            setSavedMovies={setSavedMovies}/>} />) :  (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+}
+      {loggedIn ? (<Route path="/profile" element={<ProtectedRoute 
+            element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} isSuccess={isSuccess} setIsSuccess={setIsSuccess} />} />) : (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+}
+         {!loggedIn ? 
+           (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />) 
+           : 
+           ( <Route path="*" element={<Error />}/> )
+          }
         </Routes>
-
       </div >
     </CurrentUserContext.Provider>
   )

@@ -5,6 +5,7 @@ import './Movies.css';
 import HeaderAuth from '../HeaderAuth/HeaderAuth';
 import Footer from '../Footer/Footer';
 import MoviesApi from "../../utils/MoviesApi";
+import { shortFilms } from '../../utils/allScreen';
 
 export default function Movies({
   savedMovies,
@@ -26,7 +27,7 @@ export default function Movies({
     setFilterMovies(allmovies.filter((movie) => {
       const searchName = movie.nameRU.toLowerCase().includes(search.toLowerCase()) ||
         movie.nameEN.toLowerCase().includes(search.toLowerCase());
-      return isCheck ? (searchName && movie.duration <= 40) : searchName
+      return isCheck ? (searchName && movie.duration <= shortFilms) : searchName
     }))
   })
 
@@ -71,7 +72,7 @@ export default function Movies({
 
 
   function changeCheck() {
-    if (isCheck ) {
+    if (isCheck) {
       setIsCheck(false)
       filtredMovie(isSearch, false, allMovies)
       localStorage.getItem('check', JSON.stringify(false))
@@ -92,16 +93,16 @@ export default function Movies({
         <SearchForm
           searchFilms={searchFilms} allMovies={allMovies} setAllMovies={setAllMovies} filterMovies={filterMovies} setFilterMovies={setFilterMovies} isCheck={isCheck} isSearch={isSearch}
           changeCheck={changeCheck} firstSearch={firstSearch} setFirstSearch={setFirstSearch}
-          setIsSearch={setIsSearch} filtredMovie={filtredMovie} setIsCheck={setIsCheck} savedMovies={savedMovies} isLoading={isLoading} isSaved={false}  
+          setIsSearch={setIsSearch} filtredMovie={filtredMovie} setIsCheck={setIsCheck} savedMovies={savedMovies} isLoading={isLoading} isSaved={false}
         />
         <MoviesCardList
-          allMovies={allMovies} 
-          isSaved={false} 
+          allMovies={allMovies}
+          isSaved={false}
           filterMovies={filterMovies}
-           savedMovies={savedMovies} 
-           handleAddSubmit={handleAddSubmit} 
-           loadingError={loadingError}
-           firstSearch={firstSearch}
+          savedMovies={savedMovies}
+          handleAddSubmit={handleAddSubmit}
+          loadingError={loadingError}
+          firstSearch={firstSearch}
         />
       </main>
       <Footer />
