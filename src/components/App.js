@@ -179,7 +179,6 @@ function App() {
   }
 
 
-
   useEffect(() => {
     if (localStorage.token) {
       Promise.all([MainApi.getUserInfo(localStorage.token), MainApi.getMovie(localStorage.token)])
