@@ -120,7 +120,7 @@ function App() {
   }
 
   function signOut() {
-    // localStorage.removeItem('token');
+    localStorage.removeItem('token');
     localStorage.clear()
     setLoggedIn(false)
     navigate('/')
@@ -177,7 +177,6 @@ function App() {
         .catch((error) => console.error(`Ошибка лайка ${error}`));
     }
   }
-
 
 
 
