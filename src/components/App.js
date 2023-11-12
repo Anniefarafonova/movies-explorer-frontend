@@ -20,7 +20,6 @@ function App() {
   // стейт попапов
   // стейт статусa пользователя  
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [isDone, setIsDone] = React.useState(false);
   // стейт контекст
   const [currentUser, setCurrentUser] = useState({});
   // стейт name
@@ -28,7 +27,6 @@ function App() {
   // стейт email
   const [email, setEmail] = React.useState('');
   // стейт фильмов
-  // const [movies, setMovies] = useState([]);
   // стейт загрузки
   const [preloader, setPreloader] = useState(false);
 
@@ -36,14 +34,27 @@ function App() {
 
   const [deleteId, setDeleteId] = useState('');
 
-  const [isUpdateCheck, setIsUpdateCheck] = useState(true)
   const [isWarning, setIsWarning] = useState(false);
   const [isSuccess, setIsSuccess] = useState("");
 
+  const [isCheckToken, setIsCheckToken] = useState(true)
+
 
   useEffect(() => {
-    setName(currentUser.name);
-  }, [currentUser]);
+    loggedIn &&
+      Promise.all([MainApi.getUserInfo(localStorage.token), MainApi.getMovie(localStorage.token)])
+        .then(([dataUser, dataMovies]) => {
+          setCurrentUser(dataUser)
+          setSavedMovies(dataMovies);
+          setLoggedIn(true);
+          setIsCheckToken(false)
+        })
+        .catch((error) => {
+          console.error(`Ошибка при начальных данный страницы ${error}`);
+          setIsCheckToken(false)
+          localStorage.clear()
+        })
+  }, [loggedIn]);
 
 
   //проверка токена
@@ -54,16 +65,15 @@ function App() {
   const getTokenCheck = (token) => {
     if (localStorage.getItem('token')) {
       const token = localStorage.getItem('token');
-      MainApi
-        .getUserInfo(token)
-        .then((res) => {
-          if (res) {
-            setLoggedIn(true);
-          }
-        });
+      setLoggedIn(true)
+      setIsCheckToken(false)
+    }
+    else {
+      setLoggedIn(false)
+      setIsCheckToken(false)
+      localStorage.clear()
     }
   }
-
 
   //функция авторизации
   function onLogin(email, password) {
@@ -80,7 +90,6 @@ function App() {
       .catch((error) => {
         console.error(`Ошибка при авторизации ${error}`)
         console.log('ne ok auth');
-        setIsDone(false)
         setIsWarning(true)
       })
   }
@@ -107,7 +116,6 @@ function App() {
             .catch((error) => {
               console.error(`Ошибка при регистрации ${error}`)
               console.log('ne ok registr');
-              setIsDone(false)
               setIsWarning(true)
             })
         }
@@ -178,76 +186,85 @@ function App() {
     }
   }
 
-
-  useEffect(() => {
-    if (localStorage.token) {
-      Promise.all([MainApi.getUserInfo(localStorage.token), MainApi.getMovie(localStorage.token)])
-        .then(([userData, dataMovies]) => {
-          setSavedMovies(dataMovies)
-          setCurrentUser(userData)
-          setLoggedIn(true)
-          // setIsCheckToken(false)
-        })
-        .catch((err) => {
-          console.error(`Ошибка при загрузке начальных данных ${err}`)
-          // setIsCheckToken(false)
-          localStorage.clear()
-        })
-    } else {
-      setLoggedIn(false)
-      // setIsCheckToken(false)
-      localStorage.clear()
-    }
-  }, [loggedIn])
-
-
-
   return (
+
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="page">
-        <Routes>
-        <Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />
-          {!loggedIn ?
-            (<Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
-            :
-            (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
-          }
-          {!loggedIn ?
-            (<Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
-            :
-            (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
-          } 
-       {loggedIn ? (<Route path="/movies" element={<ProtectedRoute
-            element={Movies}
-            loggedIn={loggedIn}
-            handleAddSubmit={handleAddSubmit}
-            handleDeleteSubmit={handleDeleteSubmit}
-            savedMovies={savedMovies}
-            setSavedMovies={setSavedMovies}
-          />} />) :  (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
-}
-       {loggedIn ? (<Route path="/saved-movies" element={<ProtectedRoute
-            element={SavedMovies}
-            loggedIn={loggedIn}
-            handleAddSubmit={handleAddSubmit}
-            handleDeleteSubmit={handleDeleteSubmit}
-            savedMovies={savedMovies}
-            setSavedMovies={setSavedMovies}/>} />) :  (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
-}
-      {loggedIn ? (<Route path="/profile" element={<ProtectedRoute 
-            element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} isSuccess={isSuccess} setIsSuccess={setIsSuccess} />} />) : (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
-}
-         {!loggedIn ? 
-           (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />) 
-           : 
-           ( <Route path="*" element={<Error />}/> )
-          }
-        </Routes>
-      </div >
+      {isCheckToken ? <Preloader /> :
+        <div className="page">
+          <Routes>
+
+
+            <Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />
+            {!loggedIn ?
+              (<Route path="/signup" element={<Register onRegister={onRegister} name={name} email={email} loggedIn={loggedIn} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
+              :
+              (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+            }
+            {!loggedIn ?
+              (<Route path="/signin" element={<Login onLogin={onLogin} name={name} email={email} isWarning={isWarning} setIsWarning={setIsWarning} />} />)
+              :
+              (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+            }
+
+            <Route path="/movies" element={<ProtectedRoute
+              element={Movies}
+              loggedIn={loggedIn}
+              handleAddSubmit={handleAddSubmit}
+              handleDeleteSubmit={handleDeleteSubmit}
+              savedMovies={savedMovies}
+              setSavedMovies={setSavedMovies}
+            />}
+            />
+            <Route path="/saved-movies" element={<ProtectedRoute
+              element={SavedMovies}
+              loggedIn={loggedIn}
+              handleAddSubmit={handleAddSubmit}
+              handleDeleteSubmit={handleDeleteSubmit}
+              savedMovies={savedMovies}
+              setSavedMovies={setSavedMovies}
+            />}
+            />
+            <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} isSuccess={isSuccess} setIsSuccess={setIsSuccess} />} />
+
+            <Route path="/*" element={<Error />} />
+          </Routes>
+
+        </div >
+      }
     </CurrentUserContext.Provider>
+
   )
 }
 
 
 export default App;
 
+
+
+
+            {/* {loggedIn ? (<Route path="/movies" element={<ProtectedRoute
+              element={Movies}
+              loggedIn={loggedIn}
+              handleAddSubmit={handleAddSubmit}
+              handleDeleteSubmit={handleDeleteSubmit}
+              savedMovies={savedMovies}
+              setSavedMovies={setSavedMovies}
+            />} />) : (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+            }
+            {loggedIn ? (<Route path="/saved-movies" element={<ProtectedRoute
+              element={SavedMovies}
+              loggedIn={loggedIn}
+              handleAddSubmit={handleAddSubmit}
+              handleDeleteSubmit={handleDeleteSubmit}
+              savedMovies={savedMovies}
+              setSavedMovies={setSavedMovies} />} />) : (<Route path='*' element={<Error />} />)
+            }
+            {loggedIn ? (<Route path="/profile" element={<ProtectedRoute
+              element={Profile} loggedIn={loggedIn} name={name} email={email} signOut={signOut} handleUpdateUser={handleUpdateUser} isWarning={isWarning} setIsWarning={setIsWarning} isSuccess={isSuccess} setIsSuccess={setIsSuccess} />} />) : (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+            }
+            {loggedIn ?
+            (<Route path="/" element={<Main email={email} loggedIn={loggedIn} />} />)
+            :
+            (
+              <Route path='*' element={ <Error /> } />)
+          } */}
