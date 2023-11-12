@@ -4,8 +4,6 @@ import './Profile.css';
 import HeaderAuth from '../HeaderAuth/HeaderAuth';
 import { CurrentUserContext } from "../../contexts/CurrentUserContextt/CurrentUserContext.js"
 
-import MainApi from "../../utils/MainApi";
-
 export default function Profile({ signOut, handleUpdateUser, isWarning, setIsWarning, setIsSuccess, isSuccess }) {
     const currentUser = useContext(CurrentUserContext);
     const [name, setName] = useState(currentUser.name);
