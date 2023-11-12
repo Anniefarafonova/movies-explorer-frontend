@@ -1,0 +1,142 @@
+.footer {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+
+}
+
+.footer__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A0A0A0;
+    max-width: 320px;
+    margin: 85px auto 20px
+}
+@media screen and (max-width: 820px) {
+    .footer__title {
+        margin: 90px auto 20px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .footer__title {
+        max-width: 300px;
+        font-size: 12px;
+        line-height: 15px;
+        margin: 70px auto 40px;
+    }
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 85px 0px 65px;
+    padding: 7px 0 0;
+    border-top: 1px solid rgba(232, 232, 232, 1);
+}
+
+@media screen and (max-width: 789px) {
+
+    .footer__container {
+        margin: 0 45px 0px 30px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .footer__container {
+        margin: 0 auto 20px;
+        flex-direction: column-reverse;
+    }
+}
+
+.footer__navigation {
+    max-width: 182px;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__navigation {
+        max-width: 111px;
+    }
+}
+
+.footer__navigation-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0 0;
+    margin: 0;
+    align-items: center;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__navigation-list {
+        flex-direction: column;
+        padding: 20px 0 0;
+    }
+}
+
+.footer__container-copyright {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    max-width: 48px;
+
+}
+
+@media screen and (max-width: 520px) {
+    .footer__container-copyright {
+        margin: 15px auto 0;
+    }
+}
+
+.footer__navigation-list {
+    padding-right: 20px;
+}
+
+@media screen and (max-width: 520px) {
+    .footer__navigation-list {
+        padding: 0 0 6px;
+    }
+}
+
+.footer__navigation-list:last-child {
+    padding-right: 0;
+}
+
+.footer__navigation-link {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: right;
+    color: #000000;
+    padding-left: 15px;
+
+}
+
+@media screen and (max-width: 520px) {
+    .footer__navigation-link {
+        font-size: 12px;
+        line-height: 15px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .footer__navigation-links {
+        margin-bottom: 8px;
+        padding: 0;
+    }
+}

@@ -1,0 +1,50 @@
+.preloader {
+    height: 800px;
+    width: 100%;
+}
+
+.preloader-loader {
+    display: block;
+    font-size: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border:  10px dotted rgba(157, 133, 181, 0.24);
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    text-indent: -9999em;
+    animation: animation 1.1s infinite ease;
+    transform: translateZ(0);
+}
+
+@keyframes animation {
+
+    0%,
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 1px 3px 45px rgba(24, 7, 86, 0.252)
+ 
+    }
+
+    12.5% {
+        transform: rotate(0deg);
+        box-shadow: 1px rgba(26, 3, 3, 0.886)
+    }
+
+    53% {
+        transform: rotate(350deg);
+        box-shadow: 1px 3px 5px rgba(18, 5, 5, 0.704), 9px 5px 8px rgba(142, 105, 222, 0.859)
+    }
+
+    75% {
+        transform: rotate(250deg);
+        box-shadow: 1px 8px 4px rgba(99, 214, 137, 0.884)
+    }
+
+
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 6px 8px rgba(150, 210, 179, 0.998)
+    }
+}

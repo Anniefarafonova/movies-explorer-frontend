@@ -1,0 +1,11 @@
+* {
+    position: relative;
+    z-index: 2;
+    }
+    
+.main {
+   z-index: 0;
+   flex: 1 0 auto;
+   padding: 0px;
+}
+
