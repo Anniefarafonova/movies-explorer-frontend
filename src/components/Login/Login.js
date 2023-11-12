@@ -25,7 +25,6 @@ export default function Login({ onLogin, isWarning, setIsWarning}) {
         } else if (inputValues.password.length < 5) {
             errors.password = 'неправильный пароль'
         }
-
         if (errors.email || errors.password) {
             setIsValid(true)
         } else if (errors) {
@@ -34,7 +33,6 @@ export default function Login({ onLogin, isWarning, setIsWarning}) {
         setErrors(errors);
         return errors;
     };
-
 
     function validateButton() {
 
@@ -69,7 +67,6 @@ export default function Login({ onLogin, isWarning, setIsWarning}) {
         setIsWarning(false)
         onLogin(inputValues.email, inputValues.password)
     };
-
     return (
         <>
             <main className="main">
@@ -84,7 +81,6 @@ export default function Login({ onLogin, isWarning, setIsWarning}) {
                                 <label className="form__container-span">E-mail</label>
                                 <input id="email" type="email" placeholder="введите E-mail" name="email"
                                     className="form__container-item form__container-item_login"
-
                                     value={inputValues.email || ""}
                                     onChange={inputOnChange}
 

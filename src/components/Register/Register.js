@@ -3,8 +3,6 @@ import React, { useState, useEffect, useContext, useRef, useCallback } from "rea
 import { Link, useNavigate } from 'react-router-dom';
 import imageLogo from '../../images/logo.svg'
 import './Register.css';
-// import App from "../App/App";
-
 
 export default function Register({ onRegister, isWarning, setIsWarning }) {
     const [inputValues, setInputValues] = useState({
