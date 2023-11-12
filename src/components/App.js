@@ -14,10 +14,8 @@ import Preloader from './Preloader/Preloader.js';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute.js';
 
 
-
 function App() {
   const navigate = useNavigate();
-  // стейт попапов
   // стейт статусa пользователя  
   const [loggedIn, setLoggedIn] = React.useState(false);
   // стейт контекст
@@ -37,7 +35,7 @@ function App() {
   const [isWarning, setIsWarning] = useState(false);
   const [isSuccess, setIsSuccess] = useState("");
 
-  const [isCheckToken, setIsCheckToken] = useState(true)
+  const [isCheck, setIsCheck] = useState(true)
 
 
   useEffect(() => {
@@ -47,11 +45,11 @@ function App() {
           setCurrentUser(dataUser)
           setSavedMovies(dataMovies);
           setLoggedIn(true);
-          setIsCheckToken(false)
+          setIsCheck(false)
         })
         .catch((error) => {
           console.error(`Ошибка при начальных данный страницы ${error}`);
-          setIsCheckToken(false)
+          setIsCheck(false)
           localStorage.clear()
         })
   }, [loggedIn]);
@@ -66,11 +64,11 @@ function App() {
     if (localStorage.getItem('token')) {
       const token = localStorage.getItem('token');
       setLoggedIn(true)
-      setIsCheckToken(false)
+      setIsCheck(false)
     }
     else {
       setLoggedIn(false)
-      setIsCheckToken(false)
+      setIsCheck(false)
       localStorage.clear()
     }
   }
@@ -189,7 +187,7 @@ function App() {
   return (
 
     <CurrentUserContext.Provider value={currentUser}>
-      {isCheckToken ? <Preloader /> :
+      {isCheck ? <Preloader /> :
         <div className="page">
           <Routes>
 
